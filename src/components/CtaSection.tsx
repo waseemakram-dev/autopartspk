@@ -24,7 +24,7 @@ export const CtaSection: React.FC = () => {
     const [isSettled, setIsSettled] = useState(false);
 
     const whatsappLink = `https://wa.me/${shopInfo.whatsapp}?text=${encodeURIComponent(
-        "Assalam o Alaikum! Mujhe apni gaari ke spare parts chahiyein. Please rate aur availability bata dain."
+        "Hello! I am looking for genuine auto spare parts. Please share pricing and availability."
     )}`;
     const phoneLink = `tel:${shopInfo.phone.replace(/\s+/g, '')}`;
 
@@ -557,22 +557,22 @@ export const CtaSection: React.FC = () => {
 
                     {/* Main Heading */}
                     <h2 className="font-druk text-2xl sm:text-3xl md:text-4xl uppercase tracking-tight text-white leading-tight mb-3">
-                        GAARI KA PART CHAHIYE?{' '}
+                        NEED CAR SPARE PARTS?{' '}
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff4d3d] via-[#ff7a6e] to-amber-400">
-                            DIRECT WHATSAPP KAREIN!
+                            CHAT ON WHATSAPP NOW!
                         </span>
                     </h2>
 
                     {/* Subheading */}
                     <p className="text-slate-400 font-sans text-xs sm:text-sm leading-relaxed mb-8 max-w-xl">
-                        Purane part ki photo kheenchain ya chassis number WhatsApp karein — hamare experts <strong className="text-white">5 minute mein</strong> exact OEM rate aur stock confirm kar denge.
+                        Send a photo of your old part or your vehicle chassis number — our auto specialists will confirm exact OEM prices and stock in <strong className="text-white">under 5 minutes</strong>.
                     </p>
 
                     {/* Buttons Row — Using existing Button components */}
                     <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-8">
                         {/* WhatsApp CTA — BookCallButton (bright white pill) */}
                         <BookCallButton
-                            text="WhatsApp Par Part Mangwayen"
+                            text="Order Parts on WhatsApp"
                             href={whatsappLink}
                             className="w-full sm:w-auto"
                         />
