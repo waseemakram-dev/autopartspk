@@ -12,6 +12,7 @@ import { ServicesSection } from '@/components/ServicesSection';
 import { ShopLocationSection } from '@/components/ShopLocationSection';
 import { AboutSection } from '@/components/AboutSection';
 import { FaqSection } from '@/components/FaqSection';
+import { CtaSection } from '@/components/CtaSection';
 import { Footer } from '@/components/Footer';
 import { shopInfo } from '@/data/partsData';
 import { Phone, MessageSquare } from 'lucide-react';
@@ -60,7 +61,7 @@ export default function Home() {
             <Navbar />
 
             {/* Main Sections */}
-            <main className="w-full flex-1 flex flex-col items-center py-4 space-y-8 sm:space-y-12 w-full overflow-x-hidden">
+            <main className="w-full flex-1 flex flex-col items-center py-4 space-y-8 sm:space-y-12">
                 {/* Hero Showcase */}
                 <Hero />
 
@@ -87,6 +88,9 @@ export default function Home() {
 
                 {/* Roman Urdu FAQs */}
                 <FaqSection />
+
+                {/* Car Towing Scroll CTA Section */}
+                <CtaSection />
             </main>
 
             {/* Footer */}
