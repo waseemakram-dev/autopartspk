@@ -12,7 +12,7 @@ interface CategoryGridProps {
 
 export const CategoryGrid: React.FC<CategoryGridProps> = ({ onSelectCategory }) => {
     const handleCategoryWhatsApp = (categoryName: string) => {
-        const text = `Assalam o Alaikum! Mujhe ${categoryName} ke spare parts chahiye Bahawalpur shop par. Kya stock available hai?`;
+        const text = `Hello! I am looking for ${categoryName} spare parts at your Bahawalpur store. Is this item in stock?`;
         window.open(`https://wa.me/${shopInfo.whatsapp}?text=${encodeURIComponent(text)}`, '_blank');
     };
 

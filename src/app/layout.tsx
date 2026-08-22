@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     ],
     openGraph: {
         title: 'Auto Parts & Accessories PK | Genuine Car Parts in Bahawalpur',
-        description: 'Toyota, Honda, Suzuki ke 100% genuine spare parts. WhatsApp par part photo send karein aur direct rate hasil karein.',
+        description: '100% genuine spare parts for Toyota, Honda, and Suzuki. Send a photo of your part on WhatsApp for instant pricing.',
         url: 'https://autopartsbahawalpur.pk',
         siteName: 'Auto Parts & Accessories PK',
         locale: 'en_PK',

@@ -26,7 +26,7 @@ export const AboutSection: React.FC = () => {
                         </h2>
 
                         <p className="text-slate-300 font-sans text-sm sm:text-base leading-relaxed">
-                            Auto Parts & Accessories PK Bahawalpur aur gird-o-nawaah ke car owners, mechanics, aur fleet managers ke liye ek mutamad naam hai. Hum market mein do-number aur counterfeit parts ke sakht khilaf hain aur sirf verified OEM Japanese aur Pakistani brands supply karte hain.
+                            Auto Parts & Accessories PK is the trusted automotive partner for vehicle owners, professional mechanics, and fleet managers across Bahawalpur and South Punjab. We stand firmly against counterfeits, supplying exclusively genuine Japanese and verified OEM Pakistani parts.
                         </p>
 
                         {/* 4 Pillars Grid */}
@@ -37,7 +37,7 @@ export const AboutSection: React.FC = () => {
                                     <span className="font-druk text-sm uppercase text-white tracking-tight">100% Genuine OEM</span>
                                 </div>
                                 <p className="text-xs text-slate-400 font-sans">
-                                    Toyota, Honda, Suzuki aur Denso ke authentic sealed box parts.
+                                    Factory-sealed components from Toyota, Honda, Suzuki, Denso, and Aisin.
                                 </p>
                             </div>
 
@@ -47,7 +47,7 @@ export const AboutSection: React.FC = () => {
                                     <span className="font-druk text-sm uppercase text-white tracking-tight">Direct Counter Pickup</span>
                                 </div>
                                 <p className="text-xs text-slate-400 font-sans">
-                                    Model Town Dubai Chowk counter par aakar part khud inspect karein.
+                                    Visit our Model Town Dubai Chowk counter to inspect parts in person.
                                 </p>
                             </div>
 
@@ -57,7 +57,7 @@ export const AboutSection: React.FC = () => {
                                     <span className="font-druk text-sm uppercase text-white tracking-tight">Same Day Dispatch</span>
                                 </div>
                                 <p className="text-xs text-slate-400 font-sans">
-                                    Ahmedpur, Yazman aur Lodhran ke liye rozana fast cargo delivery.
+                                    Daily cargo dispatches to Ahmedpur, Yazman, Lodhran, and Hasilpur.
                                 </p>
                             </div>
 
@@ -67,7 +67,7 @@ export const AboutSection: React.FC = () => {
                                     <span className="font-druk text-sm uppercase text-white tracking-tight">Expert Mechanic Advice</span>
                                 </div>
                                 <p className="text-xs text-slate-400 font-sans">
-                                    Chassis number verification ke sath zero-error model compatibility.
+                                    Chassis and VIN verification guaranteeing zero-error model compatibility.
                                 </p>
                             </div>
                         </div>
@@ -107,7 +107,7 @@ export const AboutSection: React.FC = () => {
 
                         <div className="pt-4 border-t border-white/10">
                             <a
-                                href={`https://wa.me/${shopInfo.whatsapp}?text=${encodeURIComponent("Assalam o Alaikum! Mujhe AutoParts PK Bahawalpur shop ke bare mein maloomat chahiye.")}`}
+                                href={`https://wa.me/${shopInfo.whatsapp}?text=${encodeURIComponent("Hello! I would like to get information regarding AutoParts PK Bahawalpur.")}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-full py-3.5 rounded-xl bg-[#e23b2c] hover:bg-[#cf3224] text-white font-machina font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-red-500/25 transition-transform active:scale-95"

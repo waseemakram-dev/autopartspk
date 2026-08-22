@@ -29,7 +29,7 @@ export const ServicesSection: React.FC = () => {
                     </h2>
                 </div>
                 <p className="text-slate-600 font-sans text-sm max-w-md">
-                    Bahawalpur mein auto parts khareedna ab mazeed asaan. WhatsApp inquiry se le kar doorstep delivery tak har qadam par mukammal sahulat.
+                    Purchasing auto parts in Bahawalpur is now seamless — from WhatsApp photo inquiries to same-day courier dispatch and instant walk-in pickups.
                 </p>
             </div>
 
@@ -55,7 +55,7 @@ export const ServicesSection: React.FC = () => {
                             <h3 className="font-druk text-xl uppercase tracking-tight text-[#11141a] leading-tight mb-1 group-hover:text-[#e23b2c] transition-colors">
                                 {service.title}
                             </h3>
-                            <span className="text-sm font-urdu text-slate-500 font-medium block mb-3">
+                            <span className="text-xs font-machina text-slate-500 font-medium block mb-3 uppercase tracking-wider">
                                 {service.urduTitle}
                             </span>
 
@@ -66,7 +66,7 @@ export const ServicesSection: React.FC = () => {
 
                         <div className="pt-4 mt-6 border-t border-slate-100">
                             <a
-                                href={`https://wa.me/${shopInfo.whatsapp}?text=${encodeURIComponent(`Assalam o Alaikum! Mujhe ${service.title} ke bare mein mazeed janna hai.`)}`}
+                                href={`https://wa.me/${shopInfo.whatsapp}?text=${encodeURIComponent(`Hello! I would like to learn more about your ${service.title} service.`)}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex items-center justify-between text-xs font-machina font-bold text-slate-700 hover:text-[#e23b2c] transition-colors uppercase tracking-wider"

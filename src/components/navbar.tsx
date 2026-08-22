@@ -42,7 +42,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenPartFinder, onOpenLocation
 
   const phoneNumber = shopInfo.phone;
   const whatsappNumber = shopInfo.whatsapp;
-  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Assalam o Alaikum! Mujhe Auto Parts Accessories PK Bahawalpur se spare parts ki inquiry karni hai.")}`;
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hello! I would like to inquire about genuine spare parts at Auto Parts & Accessories PK Bahawalpur.")}`;
   const phoneLink = `tel:${phoneNumber.replace(/\s+/g, '')}`;
 
   return (

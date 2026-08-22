@@ -316,25 +316,25 @@ export const areasServed: AreaServed[] = [
         status: "Express Local Delivery"
     },
     {
-        name: "Ahmedpur East (احمد پور شرقیہ)",
+        name: "Ahmedpur East & Uch Sharif",
         distance: "45 km",
         deliveryTime: "Same Day (2-3 Hours via AC Van Service)",
         status: "Daily Cargo Dispatch"
     },
     {
-        name: "Yazman & Channigoth (یزمان)",
+        name: "Yazman & Channigoth",
         distance: "32 km",
         deliveryTime: "Same Day Dispatch",
         status: "Daily Bus Cargo Delivery"
     },
     {
-        name: "Lodhran & Dunyapur (لودھراں)",
+        name: "Lodhran & Dunyapur",
         distance: "18 km",
         deliveryTime: "Same Day (1-2 Hours)",
         status: "Direct Courier / Van Link"
     },
     {
-        name: "Hasilpur & Khairpur Tamewali (حاصل پور)",
+        name: "Hasilpur & Khairpur Tamewali",
         distance: "60 km",
         deliveryTime: "Same Day Delivery",
         status: "Cargo Service Dispatch"
@@ -345,32 +345,32 @@ export const servicesList: ServiceItem[] = [
     {
         id: 'snap-send',
         title: 'Snap & Send Part Finder',
-        urduTitle: 'پارٹ کی تصویر بھیجیں',
-        description: 'Part ka exact number nahi pata? Just picture kheenchain aur WhatsApp karein. 5 minutes mein rate aur availability payen.',
+        urduTitle: 'Photo Part Finder',
+        description: 'Don’t know the exact part number? Just take a photo and send it via WhatsApp. Get prices and availability in under 5 minutes.',
         icon: 'Camera',
         badge: 'Popular #1'
     },
     {
         id: 'genuine-guarantee',
         title: '100% Genuine Parts Guarantee',
-        urduTitle: 'اصلی جاپانی پارٹس کی گارنٹی',
-        description: 'Zero counterfeit or duplicate copies. Har part OEM barcode aur authentic packaging ke sath verification ke qabil hai.',
+        urduTitle: '100% Genuine Guarantee',
+        description: 'Zero counterfeit or duplicate copies. Every part comes with authentic OEM barcodes and manufacturer packaging for verification.',
         icon: 'ShieldCheck',
         badge: 'Trust Verified'
     },
     {
         id: 'counter-pickup',
         title: 'Instant Bahawalpur Counter Pickup',
-        urduTitle: 'دکان سے فوری دستیابی',
-        description: 'Dubai Chowk Model Town counter par aakar khud check karein aur discount wholesale rates par hand-to-hand le jayen.',
+        urduTitle: 'Instant Counter Pickup',
+        description: 'Visit our Dubai Chowk Model Town counter to inspect parts in person and purchase at wholesale rates with instant handover.',
         icon: 'Store',
         badge: 'Walk-in'
     },
     {
         id: 'mechanic-guidance',
         title: 'Free Compatibility & Mechanic Guidance',
-        urduTitle: 'فری ماڈل اور فٹنگ رہنمائی',
-        description: 'Chassis number ya car model bata kar exact matching part confirm karein taake mechanic ke paas ja kar fitting ka masla na bane.',
+        urduTitle: 'Compatibility Guidance',
+        description: 'Share your vehicle chassis or VIN number to verify exact part fitment and avoid mechanical sizing mismatches.',
         icon: 'Wrench',
         badge: 'Expert Advice'
     }
@@ -378,23 +378,23 @@ export const servicesList: ServiceItem[] = [
 
 export const faqsData = [
     {
-        q: "Kya aapke paas 100% genuine Japanese aur OEM parts hotay hain?",
-        a: "Jee bilkul! Auto Parts & Accessories PK Bahawalpur sirf authentic OEM aur Japanese genuine brands (Toyota Genuine, Honda Genuine, Suzuki Genuine, Denso, Aisin, KYB, Akebono, NGK) supply karta hai. Har part par verification barcode aur authentic stamping hoti hai."
+        q: "Do you supply 100% genuine Japanese and OEM parts?",
+        a: "Yes, absolutely! Auto Parts & Accessories PK Bahawalpur exclusively supplies authentic OEM and genuine Japanese brands (Toyota Genuine, Honda Genuine, Suzuki Genuine, Denso, Aisin, KYB, Akebono, NGK). Every part carries verifiable barcodes and authentic manufacturer stamping."
     },
     {
-        q: "Mujhe part ka naam ya number nahi pata, main kaise order karoon?",
-        a: "Yeh hamari sab se asaan service hai! Bas apne purane ya toote hue part ki 2 pictures mobile se kheenchain aur hamare WhatsApp (+92 300 8687890) par send karein. Hamare auto experts foran part identify karke aapko rate aur stock bata denge."
+        q: "I don't know the part name or code. How can I place an order?",
+        a: "It's simple! Take 2 clear photos of your old or damaged part with your phone and send them to our WhatsApp helpline (+92 300 8687890). Our auto specialists will immediately identify the part and provide instant pricing and stock status."
     },
     {
-        q: "Bahawalpur ke ilawa kya Ahmedpur East, Yazman ya Lodhran mein delivery mil sakti hai?",
-        a: "Jee haan! Bahawalpur city ke andar 30-45 minutes mein rider delivery hoti hai, jabke Ahmedpur East, Yazman, Lodhran, Hasilpur aur Khanpur ke liye daily morning aur afternoon cargo dispatch hoti hai jo same-day deliver ho jati hai."
+        q: "Do you offer delivery outside Bahawalpur to Ahmedpur East, Yazman, or Lodhran?",
+        a: "Yes! Within Bahawalpur city, we offer fast rider delivery in 30-45 minutes. For Ahmedpur East, Yazman, Lodhran, Hasilpur, and Khanpur, we operate daily morning and afternoon cargo dispatches for same-day delivery."
     },
     {
-        q: "Shop ki timing aur exact address kya hai?",
-        a: "Hamari shop Model Town, Near Dubai Chowk, Bahawalpur par waqia hai. Shop timings subah 9:00 AM se raat 9:30 PM tak hain (Monday se Saturday)."
+        q: "What are your store hours and physical location?",
+        a: "Our physical store is located at Model Town, Near Dubai Chowk, Bahawalpur. We are open Monday through Saturday from 9:00 AM to 9:30 PM."
     },
     {
-        q: "Agar part fit na aaye ya model match na ho toh kya exchange policy hai?",
-        a: "Agar part un-used aur original packing mein ho, toh aap 7 din ke andar counter par aakar ya courier ke zariye easily exchange karwa sakte hain."
+        q: "What is your exchange policy if a part does not fit?",
+        a: "If the item is unused and remains in its original packaging, you can easily exchange it within 7 days by visiting our counter or via courier delivery."
     }
 ];

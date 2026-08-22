@@ -151,7 +151,7 @@ export const Hero: React.FC = () => {
 
     const handleSearch = (e?: React.FormEvent) => {
         if (e) e.preventDefault();
-        const text = `Assalam o Alaikum! Mujhe ${selectedMake} ${selectedModel} (${selectedYear}) ke liye ${selectedCategory} spare parts chahiye. Bahawalpur store counter availability aur wholesale price bata dain.`;
+        const text = `Hello! I need ${selectedCategory} spare parts for ${selectedMake} ${selectedModel} (${selectedYear}). Please share Bahawalpur store counter availability and wholesale pricing.`;
         window.open(`https://wa.me/${shopInfo.whatsapp}?text=${encodeURIComponent(text)}`, '_blank');
     };
 
@@ -263,7 +263,7 @@ export const Hero: React.FC = () => {
 
                             {/* SUBHEADLINE FOR TRUST & LOCAL AVAILABILITY */}
                             <p className="mt-3 text-sm sm:text-base text-slate-600 font-machina max-w-md leading-snug">
-                                Toyota, Honda, Suzuki aur Japanese gariyon ke liye verified spare parts — Bahawalpur mein counter se turant milte hain.
+                                Verified spare parts for Toyota, Honda, Suzuki and Japanese cars — ready for instant counter pickup in Bahawalpur.
                             </p>
 
                             {/* CATEGORY FLYOUT & HANDWRITTEN "Select car" CALLOUT */}
@@ -409,7 +409,7 @@ export const Hero: React.FC = () => {
                             <div className="flex flex-col sm:flex-row sm:items-center justify-between text-[11px] font-machina text-slate-600 mb-2 gap-1 font-semibold">
                                 <span className="flex items-center gap-1.5 font-bold text-[#0f1115]">
                                     <Sparkles className="w-3.5 h-3.5 text-[#e03627]" />
-                                    Apni gaari select karein, rate turant WhatsApp par milega:
+                                    Select your car to receive instant pricing on WhatsApp:
                                 </span>
                                 <span className="text-slate-500 font-medium">
                                     ✓ Local walk-in store &nbsp;•&nbsp; ✓ Same-day part availability check
@@ -592,12 +592,12 @@ export const Hero: React.FC = () => {
                                             {currentTrending.status}
                                         </span>
                                         <a
-                                            href={`https://wa.me/${shopInfo.whatsapp}?text=${encodeURIComponent(`Assalam o Alaikum! Mujhe ${currentTrending.carModel} ke ${currentTrending.partName} ka rate chahiye.`)}`}
+                                            href={`https://wa.me/${shopInfo.whatsapp}?text=${encodeURIComponent(`Hello! I would like to inquire about the price for ${currentTrending.carModel} ${currentTrending.partName}.`)}`}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="text-[#e03627] font-bold hover:underline"
                                         >
-                                            Ask Rate →
+                                            Get Price →
                                         </a>
                                     </div>
                                 </div>
@@ -667,13 +667,13 @@ export const Hero: React.FC = () => {
                         {/* DIRECT WHATSAPP ACTION BUTTON IN SIDEBAR FOOTER */}
                         <div className="mt-6 pt-4 border-t border-slate-300/80">
                             <a
-                                href={`https://wa.me/${shopInfo.whatsapp}?text=${encodeURIComponent(`Assalam o Alaikum! Mujhe AutoParts PK Bahawalpur se ${currentFeatured.partName} (${currentFeatured.code}) ki price aur stock confirm karna hai.`)}`}
+                                href={`https://wa.me/${shopInfo.whatsapp}?text=${encodeURIComponent(`Hello! I would like to check price and stock availability for ${currentFeatured.partName} (${currentFeatured.code}) at AutoParts PK Bahawalpur.`)}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-full py-3 rounded-xl bg-[#0f1115] hover:bg-black text-white text-xs font-machina font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-transform active:scale-95 shadow-md"
                             >
                                 <MessageSquare className="w-3.5 h-3.5 text-[#e03627] fill-current" />
-                                <span>WhatsApp Par Rate Poochein</span>
+                                <span>Check Price on WhatsApp</span>
                             </a>
                         </div>
 

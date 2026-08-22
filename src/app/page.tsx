@@ -18,7 +18,7 @@ import { shopInfo } from '@/data/partsData';
 import { Phone, MessageSquare } from 'lucide-react';
 
 export default function Home() {
-    const whatsappLink = `https://wa.me/${shopInfo.whatsapp}?text=${encodeURIComponent("Assalam o Alaikum! Mujhe AutoParts PK Bahawalpur se spare parts ki inquiry karni hai.")}`;
+    const whatsappLink = `https://wa.me/${shopInfo.whatsapp}?text=${encodeURIComponent("Hello! I would like to inquire about genuine spare parts at AutoParts PK Bahawalpur.")}`;
     const phoneLink = `tel:${shopInfo.phone.replace(/\s+/g, '')}`;
 
     return (

@@ -6,7 +6,7 @@ import { shopInfo } from '@/data/partsData';
 
 export const FeatureSection: React.FC = () => {
     const handleSnapSendWhatsApp = () => {
-        const text = "Assalam o Alaikum! Yeh mere gaari ke purane/toote hue part ki picture hai. Please iska exact OEM rate aur Bahawalpur store par availability bata dain.";
+        const text = "Hello! Here is a photo of my old/damaged car part. Please provide the exact OEM price and availability at your Bahawalpur store.";
         window.open(`https://wa.me/${shopInfo.whatsapp}?text=${encodeURIComponent(text)}`, '_blank');
     };
 
@@ -27,12 +27,12 @@ export const FeatureSection: React.FC = () => {
                         </div>
 
                         <h2 className="font-druk text-3xl sm:text-4xl lg:text-5xl uppercase tracking-tight text-[#0f1115] leading-tight">
-                            PART KA NAAM NAHI PATA? <br />
-                            <span className="text-[#e03627]">PHOTO BHEJEIN!</span>
+                            DON'T KNOW THE PART NAME? <br />
+                            <span className="text-[#e03627]">SEND A PHOTO!</span>
                         </h2>
 
                         <p className="text-slate-600 font-machina text-xs sm:text-sm leading-relaxed">
-                            Aksar car part par OEM code mit jata hai ya technical naam pata nahi hota. Bas purane part ki mobile se photo kheenchain aur hamari Bahawalpur WhatsApp helpline par bhej kar instant rate confirm karein.
+                            OEM part numbers often wear off or technical names can be tricky. Simply snap a photo of your old part with your phone and send it to our Bahawalpur WhatsApp helpline for an instant price quote.
                         </p>
 
                         {/* Ultra-Modern 3-Step Timeline Flow */}
@@ -48,7 +48,7 @@ export const FeatureSection: React.FC = () => {
                                 </div>
                                 <div>
                                     <h4 className="font-druk text-sm uppercase text-[#0f1115]">1. Snap Photo</h4>
-                                    <p className="text-[11px] font-machina text-slate-500 mt-0.5">Purane part ki mobile photo kheenchain</p>
+                                    <p className="text-[11px] font-machina text-slate-500 mt-0.5">Take a picture of your old or broken part</p>
                                 </div>
                             </div>
 
@@ -62,7 +62,7 @@ export const FeatureSection: React.FC = () => {
                                 </div>
                                 <div>
                                     <h4 className="font-druk text-sm uppercase text-[#0f1115]">2. WhatsApp Us</h4>
-                                    <p className="text-[11px] font-machina text-slate-500 mt-0.5">Bahawalpur counter desk par send karein</p>
+                                    <p className="text-[11px] font-machina text-slate-500 mt-0.5">Send directly to our counter desk</p>
                                 </div>
                             </div>
 
@@ -76,7 +76,7 @@ export const FeatureSection: React.FC = () => {
                                 </div>
                                 <div>
                                     <h4 className="font-druk text-sm uppercase text-[#0f1115]">3. Instant Quote</h4>
-                                    <p className="text-[11px] font-machina text-slate-500 mt-0.5">5 mins me stock status & rate payen</p>
+                                    <p className="text-[11px] font-machina text-slate-500 mt-0.5">Get stock status & rate in 5 mins</p>
                                 </div>
                             </div>
 

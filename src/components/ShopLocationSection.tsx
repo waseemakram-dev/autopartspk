@@ -22,7 +22,7 @@ export const ShopLocationSection: React.FC = () => {
                         </h2>
                     </div>
                     <p className="text-slate-600 font-machina text-xs sm:text-sm max-w-md">
-                        Model Town Dubai Chowk counter par live visit karein ya Ahmedpur, Yazman aur Lodhran ke liye same-day delivery mangwayen.
+                        Visit our physical counter at Model Town, Dubai Chowk or request same-day courier dispatch to Ahmedpur, Yazman, Lodhran, and beyond.
                     </p>
                 </div>
 
@@ -108,7 +108,7 @@ export const ShopLocationSection: React.FC = () => {
 
                             <GrowthPlanButton
                                 text="Share Location Pin"
-                                href={`https://wa.me/${shopInfo.whatsapp}?text=${encodeURIComponent("Assalam o Alaikum! Mujhe shop ka exact location pin WhatsApp par share kar dain.")}`}
+                                href={`https://wa.me/${shopInfo.whatsapp}?text=${encodeURIComponent("Hello! Please share the exact Google Maps location pin for your Bahawalpur store on WhatsApp.")}`}
                                 className="!py-2.5 !px-5 !text-xs !bg-[#e03627] !text-white !border-[#e03627] shadow-md shadow-red-500/25"
                             />
                         </div>
@@ -131,7 +131,7 @@ export const ShopLocationSection: React.FC = () => {
                                 Surrounding Tehsils Delivery
                             </h3>
                             <p className="text-xs font-machina text-slate-500 leading-relaxed">
-                                Bahawalpur city aur nearest tehsils ke liye daily fast rider & bus cargo dispatch:
+                                Fast rider delivery within Bahawalpur city & express daily bus cargo to surrounding districts:
                             </p>
 
                             {/* Interactive Areas Hover List */}
@@ -171,13 +171,13 @@ export const ShopLocationSection: React.FC = () => {
                                     <span>URGENT OUT-OF-CITY DISPATCH SCHEDULE</span>
                                 </div>
                                 <p className="text-[11px] text-slate-600 leading-normal">
-                                    Morning <strong className="text-[#0f1115]">11:00 AM</strong> & Afternoon <strong className="text-[#0f1115]">3:30 PM</strong> cargo schedule par same-day part dispatch kar diya jata hai.
+                                    Morning dispatch at <strong className="text-[#0f1115]">11:00 AM</strong> & Afternoon dispatch at <strong className="text-[#0f1115]">3:30 PM</strong> for same-day delivery.
                                 </p>
                             </div>
 
                             <GrowthPlanButton
                                 text="Book Cargo Dispatch"
-                                href={`https://wa.me/${shopInfo.whatsapp}?text=${encodeURIComponent("Assalam o Alaikum! Mujhe urgent out-of-city cargo dispatch mangwana hai spare parts ka.")}`}
+                                href={`https://wa.me/${shopInfo.whatsapp}?text=${encodeURIComponent("Hello! I would like to book an urgent cargo dispatch for auto spare parts from your Bahawalpur store.")}`}
                                 className="w-full !py-3.5 !px-6 !text-xs !bg-[#e03627] !text-white !border-[#e03627] shadow-lg shadow-red-500/25"
                             />
                         </div>

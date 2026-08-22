@@ -14,7 +14,7 @@ export const FeaturedProducts: React.FC = () => {
         : featuredProducts.filter((p: Product) => p.category === filterCategory);
 
     const handlePartWhatsAppOrder = (part: Product) => {
-        const text = `Assalam o Alaikum! Mujhe ${part.name} (Part #${part.partNumber}) ka rate aur availability confirm karni hai Bahawalpur counter pickup ke liye.`;
+        const text = `Hello! I would like to check the price and stock availability for ${part.name} (Part #${part.partNumber}) for pickup at your Bahawalpur counter.`;
         window.open(`https://wa.me/${shopInfo.whatsapp}?text=${encodeURIComponent(text)}`, '_blank');
     };
 

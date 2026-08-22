@@ -17,13 +17,13 @@ export const FaqSection: React.FC = () => {
             <div className="text-center max-w-2xl mx-auto mb-10">
                 <div className="inline-flex items-center gap-2 text-xs font-machina font-bold text-[#e23b2c] uppercase tracking-wider mb-2">
                     <HelpCircle className="w-4 h-4" />
-                    <span>COMMON QUESTIONS • ROMAN URDU & ENGLISH FAQS</span>
+                    <span>COMMON QUESTIONS • FREQUENTLY ASKED QUESTIONS</span>
                 </div>
                 <h2 className="font-druk text-3xl sm:text-4xl uppercase tracking-tight text-[#11141a]">
                     FREQUENTLY ASKED QUESTIONS
                 </h2>
                 <p className="text-slate-600 font-sans text-xs sm:text-sm mt-2">
-                    Genuine parts, order process, delivery timings aur Bahawalpur shop policy ke mutalliq ahem sawalaat.
+                    Essential details regarding genuine parts, ordering process, delivery times, and store policies.
                 </p>
             </div>
 
@@ -62,16 +62,16 @@ export const FaqSection: React.FC = () => {
             {/* Quick WhatsApp Assistance */}
             <div className="text-center mt-8">
                 <p className="text-xs font-machina text-slate-500 mb-2">
-                    Koi aur sawal hai jo yahan nahi mila?
+                    Have a specific question not covered here?
                 </p>
                 <a
-                    href={`https://wa.me/${shopInfo.whatsapp}?text=${encodeURIComponent("Assalam o Alaikum! Mujhe ek specific sawal poochna hai auto parts ke bare mein.")}`}
+                    href={`https://wa.me/${shopInfo.whatsapp}?text=${encodeURIComponent("Hello! I have a specific question regarding auto spare parts.")}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-xs font-machina font-bold text-[#e23b2c] hover:underline"
                 >
                     <MessageSquare className="w-4 h-4 fill-current" />
-                    <span>Direct WhatsApp Par Hamare Ustaad Se Baat Karein</span>
+                    <span>Chat Directly with our Auto Specialist on WhatsApp</span>
                 </a>
             </div>
         </section>

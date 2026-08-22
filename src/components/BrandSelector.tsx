@@ -14,7 +14,7 @@ export const BrandSelector: React.FC<BrandSelectorProps> = ({ onSelectBrand }) =
     const selectedBrandData = carBrands.find((b: Brand) => b.id === activeBrand) || carBrands[0];
 
     const handleWhatsAppBrandInquiry = (brandName: string) => {
-        const text = `Assalam o Alaikum! Mujhe ${brandName} ke genuine spare parts ki inquiry karni hai Bahawalpur shop se.`;
+        const text = `Hello! I would like to inquire about genuine spare parts for ${brandName} from your Bahawalpur store.`;
         window.open(`https://wa.me/${shopInfo.whatsapp}?text=${encodeURIComponent(text)}`, '_blank');
     };
 
@@ -34,7 +34,7 @@ export const BrandSelector: React.FC<BrandSelectorProps> = ({ onSelectBrand }) =
                         </h2>
                     </div>
                     <p className="text-slate-600 font-machina text-xs sm:text-sm max-w-md">
-                        Toyota, Honda, Suzuki aur Japanese gariyon ke verified genuine spare parts — Bahawalpur counter pickup ke sath.
+                        Verified genuine spare parts for Toyota, Honda, Suzuki, and Japanese vehicles — available for instant Bahawalpur counter pickup.
                     </p>
                 </div>
 
