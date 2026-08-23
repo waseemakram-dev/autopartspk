@@ -17,10 +17,10 @@ export const Logo: React.FC<LogoProps> = ({
     align = 'left'
 }) => {
     const sizeMap = {
-        sm: { img: 'h-8 sm:h-10' },
-        md: { img: 'h-12 sm:h-14 md:h-16' },
-        lg: { img: 'h-14 sm:h-18 md:h-22' },
-        xl: { img: 'h-20 sm:h-26 md:h-32' },
+        sm: { img: 'h-9 sm:h-11' },
+        md: { img: 'h-14 sm:h-16 md:h-18' },
+        lg: { img: 'h-20 sm:h-26 md:h-30' },
+        xl: { img: 'h-24 sm:h-32 md:h-38' },
     };
 
     const currentSize = sizeMap[size];

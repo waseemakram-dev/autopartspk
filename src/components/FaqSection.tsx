@@ -17,9 +17,10 @@ export const FaqSection: React.FC = () => {
             <div className="w-full max-w-[1400px] mx-auto">
                 {/* Centered Header */}
                 <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14 flex flex-col items-center">
-                    <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#e03627]/10 text-xs font-machina font-bold text-[#e03627] uppercase tracking-wider mb-3">
-                        <HelpCircle className="w-4 h-4" />
-                        <span>COMMON QUESTIONS • FREQUENTLY ASKED QUESTIONS</span>
+                    <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-[#e03627]/10 text-[10px] sm:text-xs font-machina font-bold text-[#e03627] uppercase tracking-wider mb-3 whitespace-nowrap">
+                        <HelpCircle className="w-3.5 h-3.5" />
+                        <span className="sm:hidden">FREQUENTLY ASKED QUESTIONS</span>
+                        <span className="hidden sm:inline">COMMON QUESTIONS • FREQUENTLY ASKED QUESTIONS</span>
                     </div>
                     <h2 className="font-druk text-3xl sm:text-4xl lg:text-5xl uppercase tracking-tight text-[#11141a]">
                         FREQUENTLY ASKED QUESTIONS

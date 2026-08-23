@@ -20,9 +20,10 @@ export const ServicesSection: React.FC = () => {
             <div className="w-full max-w-[1400px] mx-auto">
                 {/* Centered Header */}
                 <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14 flex flex-col items-center">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#e03627]/10 text-xs font-machina font-bold text-[#e03627] uppercase tracking-wider mb-3">
-                    <Wrench className="w-3.5 h-3.5" />
-                    <span>PREMIUM SHOP SERVICES & CUSTOMER ASSURANCE</span>
+                <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-[#e03627]/10 text-[10px] sm:text-xs font-machina font-bold text-[#e03627] uppercase tracking-wider mb-3 whitespace-nowrap">
+                    <Wrench className="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0" />
+                    <span className="sm:hidden">PREMIUM SERVICES & ASSURANCE</span>
+                    <span className="hidden sm:inline">PREMIUM SHOP SERVICES & CUSTOMER ASSURANCE</span>
                 </div>
                 <h2 className="font-druk text-3xl sm:text-4xl lg:text-5xl uppercase tracking-tight text-[#11141a]">
                     OUR CORE SERVICES

@@ -13,7 +13,7 @@ export const Footer: React.FC = () => {
 
                     {/* Col 1: Brand Info (Full width on mobile/tablet, 4 cols on desktop) */}
                     <div className="col-span-2 lg:col-span-4 space-y-4">
-                        <Logo size="lg" variant="color" align="left" className="!justify-start" />
+                        <Logo size="xl" variant="color" align="left" className="!justify-start" />
                         <p className="text-xs sm:text-sm font-sans text-slate-600 leading-relaxed max-w-sm">
                             Bahawalpur's premier genuine auto spare parts store. Supplying authentic Japanese OEM brake pads, suspensions, spark plugs, filters, and body parts across South Punjab.
                         </p>
