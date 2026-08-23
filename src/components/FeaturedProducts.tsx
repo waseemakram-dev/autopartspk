@@ -14,7 +14,7 @@ export const FeaturedProducts: React.FC = () => {
         : featuredProducts.filter((p: Product) => p.category === filterCategory);
 
     const handlePartWhatsAppOrder = (part: Product) => {
-        const text = `Hello! I would like to check the price and stock availability for ${part.name} (Part #${part.partNumber}) for pickup at your Bahawalpur counter.`;
+        const text = `Assalam o Alaikum! Mujhe ${part.name} (Part #${part.partNumber}) ki price aur counter stock check karni hai.`;
         window.open(`https://wa.me/${shopInfo.whatsapp}?text=${encodeURIComponent(text)}`, '_blank');
     };
 
@@ -28,23 +28,24 @@ export const FeaturedProducts: React.FC = () => {
     ];
 
     return (
-        <section id="products" className="w-full bg-[#f4f7f8] py-14 px-4 sm:px-8 border-y border-slate-300/60 shadow-sm">
+        <section id="products" className="w-full bg-[#f4f7f8] py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8 border-y border-slate-300/60 shadow-sm">
             <div className="w-full max-w-[1400px] mx-auto">
                 
-                {/* Header */}
-                <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
-                    <div>
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#e03627]/10 text-xs font-machina font-bold text-[#e03627] uppercase tracking-wider mb-2">
-                            <Tag className="w-3.5 h-3.5" />
-                            <span>FAST-MOVING INVENTORY • COUNTER PICKUP READY</span>
-                        </div>
-                        <h2 className="font-druk text-3xl sm:text-4xl lg:text-5xl uppercase tracking-tight text-[#0f1115]">
-                            FEATURED SPARE PARTS
-                        </h2>
+                {/* Centered Header */}
+                <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14 flex flex-col items-center">
+                    <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#e03627]/10 text-xs font-machina font-bold text-[#e03627] uppercase tracking-wider mb-3">
+                        <Tag className="w-3.5 h-3.5" />
+                        <span>FAST-MOVING INVENTORY • COUNTER PICKUP READY</span>
                     </div>
+                    <h2 className="font-druk text-3xl sm:text-4xl lg:text-5xl uppercase tracking-tight text-[#0f1115]">
+                        FEATURED SPARE PARTS
+                    </h2>
+                    <p className="text-slate-600 font-machina text-xs sm:text-sm mt-2 max-w-lg mx-auto">
+                        Toyota, Honda aur Suzuki ke fast-moving OEM replacement parts direct Bahawalpur counter stock se.
+                    </p>
 
-                    {/* Smooth Animated Filter Pills */}
-                    <div className="flex flex-wrap gap-2">
+                    {/* Smooth Animated Filter Pills Centered */}
+                    <div className="flex flex-wrap justify-center gap-2 mt-6">
                         {filterPills.map((pill) => {
                             const isActive = filterCategory === pill.key;
                             return (
@@ -53,7 +54,7 @@ export const FeaturedProducts: React.FC = () => {
                                     onClick={() => setFilterCategory(pill.key)}
                                     className={`relative px-4 py-2 rounded-full text-xs font-machina font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
                                         isActive
-                                            ? 'bg-[#0f1115] text-white shadow-lg scale-[1.03]'
+                                            ? 'bg-[#0f1115] text-white shadow-md scale-[1.03]'
                                             : 'bg-white text-slate-700 border border-slate-200/90 hover:bg-slate-100 hover:border-slate-300'
                                     }`}
                                 >
@@ -61,8 +62,9 @@ export const FeaturedProducts: React.FC = () => {
                                     {isActive && (
                                         <motion.span
                                             layoutId="activeFilterBubble"
-                                            className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-4 h-1 bg-[#e03627] rounded-full"
-                                            transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                                            className="absolute -bottom-1 left-1/2 w-5 h-1 bg-[#e03627] rounded-full pointer-events-none"
+                                            style={{ x: '-50%' }}
+                                            transition={{ type: 'spring', stiffness: 400, damping: 32 }}
                                         />
                                     )}
                                 </button>
@@ -85,7 +87,7 @@ export const FeaturedProducts: React.FC = () => {
                                 animate={{ opacity: 1, scale: 1, y: 0 }}
                                 exit={{ opacity: 0, scale: 0.9, y: -20 }}
                                 transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                                className="bg-white rounded-3xl border border-slate-200/90 shadow-md hover:shadow-2xl transition-shadow duration-300 overflow-hidden flex flex-col justify-between group"
+                                className="bg-white rounded-3xl border border-slate-200/90 hover:border-slate-300 shadow-none hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col justify-between group"
                             >
                                 <div>
                                     {/* Image Header with Real Sehgal Motors Photo */}

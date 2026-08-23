@@ -12,7 +12,7 @@ interface CategoryGridProps {
 
 export const CategoryGrid: React.FC<CategoryGridProps> = ({ onSelectCategory }) => {
     const handleCategoryWhatsApp = (categoryName: string) => {
-        const text = `Hello! I am looking for ${categoryName} spare parts at your Bahawalpur store. Is this item in stock?`;
+        const text = `Assalam o Alaikum! Mujhe ${categoryName} ke spare parts ki availability aur price check karni hai.`;
         window.open(`https://wa.me/${shopInfo.whatsapp}?text=${encodeURIComponent(text)}`, '_blank');
     };
 
@@ -31,18 +31,18 @@ export const CategoryGrid: React.FC<CategoryGridProps> = ({ onSelectCategory }) 
     return (
         <section
             id="categories"
-            className="relative py-16 md:py-24 px-4 sm:px-8 w-full bg-[#f4f7f8] border-y border-slate-300/80 text-[#0f1115] select-none overflow-hidden"
+            className="relative py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8 w-full bg-[#f4f7f8] border-y border-slate-300/80 text-[#0f1115] select-none overflow-hidden"
         >
-            <div className="w-full max-w-[1280px] mx-auto relative z-10">
+            <div className="w-full max-w-[1400px] mx-auto relative z-10">
 
-                {/* 1. Header Section with Motion */}
-                <div className="flex flex-col items-start mb-14 text-left max-w-2xl">
+                {/* 1. Centered Header Section with Motion */}
+                <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14 flex flex-col items-center">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
-                        className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#e03627]/10 text-xs font-machina font-bold text-[#e03627] uppercase tracking-wider mb-3"
+                        className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#e03627]/10 text-xs font-machina font-bold text-[#e03627] uppercase tracking-wider mb-3"
                     >
                         <Wrench className="w-3.5 h-3.5" />
                         <span>FAST-MOVING AUTO SPARES DEPARTMENTS</span>
@@ -53,7 +53,7 @@ export const CategoryGrid: React.FC<CategoryGridProps> = ({ onSelectCategory }) 
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: 0.1 }}
-                        className="font-druk text-3xl sm:text-4xl md:text-5xl uppercase tracking-tight text-[#0f1115] leading-tight mb-3"
+                        className="font-druk text-3xl sm:text-4xl lg:text-5xl uppercase tracking-tight text-[#0f1115] leading-tight mb-3"
                     >
                         SPARE PARTS <span className="text-[#e03627]">CATEGORIES</span>
                     </motion.h2>
@@ -63,14 +63,14 @@ export const CategoryGrid: React.FC<CategoryGridProps> = ({ onSelectCategory }) 
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: 0.2 }}
-                        className="text-slate-600 font-machina text-xs sm:text-sm leading-relaxed"
+                        className="text-slate-600 font-machina text-xs sm:text-sm leading-relaxed max-w-lg mx-auto"
                     >
                         Japanese OEM standards ke mutabiq certified braking, suspension, engine aur body spare parts counter pickup ke sath.
                     </motion.p>
                 </div>
 
                 {/* 2. Framer-Powered Category Cards Grid (3 Columns) */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
                     {partCategories.map((cat: Category, index: number) => (
                         <motion.div
                             key={cat.id}
@@ -82,7 +82,7 @@ export const CategoryGrid: React.FC<CategoryGridProps> = ({ onSelectCategory }) 
                             onClick={() => {
                                 if (onSelectCategory) onSelectCategory(cat.id);
                             }}
-                            className="group relative rounded-[24px] bg-white border border-slate-200/90 p-6 lg:p-7 flex flex-col justify-between overflow-hidden shadow-xl transition-all duration-300 hover:border-[#e03627]/60 hover:shadow-2xl cursor-pointer min-h-[480px]"
+                            className="group relative rounded-[24px] bg-white border border-slate-200/90 hover:border-slate-300 p-6 lg:p-7 flex flex-col justify-between overflow-hidden shadow-none hover:shadow-lg transition-all duration-300 cursor-pointer min-h-[480px]"
                         >
                             {/* Top Content: Badges, Title & Subcategories */}
                             <div className="relative z-10 mb-6 flex-1 flex flex-col items-start text-left">
@@ -145,7 +145,8 @@ export const CategoryGrid: React.FC<CategoryGridProps> = ({ onSelectCategory }) 
                                     <GrowthPlanButton
                                         text={`Inquire ${cat.name}`}
                                         onClick={() => handleCategoryWhatsApp(cat.name)}
-                                        className="!py-2.5 !px-5 !text-xs !bg-[#e03627] !text-white !border-[#e03627] shadow-lg shadow-red-500/40"
+                                        variant="red"
+                                        className="!py-2.5 !px-5 !text-xs shadow-lg shadow-red-500/40"
                                     />
                                 </div>
                             </div>

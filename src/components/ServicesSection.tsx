@@ -16,20 +16,19 @@ export const ServicesSection: React.FC = () => {
     };
 
     return (
-        <section id="services" className="w-full max-w-[1440px] mx-auto py-12 px-4 sm:px-6">
-            {/* Header */}
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
-                <div>
-                    <div className="flex items-center gap-2 text-xs font-machina font-bold text-[#e23b2c] uppercase tracking-wider mb-2">
-                        <Wrench className="w-4 h-4" />
-                        <span>PREMIUM SHOP SERVICES & CUSTOMER ASSURANCE</span>
-                    </div>
-                    <h2 className="font-druk text-3xl sm:text-4xl lg:text-5xl uppercase tracking-tight text-[#11141a]">
-                        OUR CORE SERVICES
-                    </h2>
+        <section id="services" className="w-full bg-white py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8 border-b border-slate-200">
+            <div className="w-full max-w-[1400px] mx-auto">
+                {/* Centered Header */}
+                <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14 flex flex-col items-center">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#e03627]/10 text-xs font-machina font-bold text-[#e03627] uppercase tracking-wider mb-3">
+                    <Wrench className="w-3.5 h-3.5" />
+                    <span>PREMIUM SHOP SERVICES & CUSTOMER ASSURANCE</span>
                 </div>
-                <p className="text-slate-600 font-sans text-sm max-w-md">
-                    Purchasing auto parts in Bahawalpur is now seamless — from WhatsApp photo inquiries to same-day courier dispatch and instant walk-in pickups.
+                <h2 className="font-druk text-3xl sm:text-4xl lg:text-5xl uppercase tracking-tight text-[#11141a]">
+                    OUR CORE SERVICES
+                </h2>
+                <p className="text-slate-600 font-sans text-xs sm:text-sm mt-2 max-w-lg mx-auto leading-relaxed">
+                    Purchasing auto parts in Bahawalpur is now seamless — from WhatsApp photo inquiries to hands-on part matching and instant walk-in counter pickups.
                 </p>
             </div>
 
@@ -66,7 +65,7 @@ export const ServicesSection: React.FC = () => {
 
                         <div className="pt-4 mt-6 border-t border-slate-100">
                             <a
-                                href={`https://wa.me/${shopInfo.whatsapp}?text=${encodeURIComponent(`Hello! I would like to learn more about your ${service.title} service.`)}`}
+                                href={`https://wa.me/${shopInfo.whatsapp}?text=${encodeURIComponent(`Assalam o Alaikum! Mujhe aap ki ${service.title} service ke baray mein maloomat chahiye.`)}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex items-center justify-between text-xs font-machina font-bold text-slate-700 hover:text-[#e23b2c] transition-colors uppercase tracking-wider"
@@ -77,6 +76,7 @@ export const ServicesSection: React.FC = () => {
                         </div>
                     </div>
                 ))}
+            </div>
             </div>
         </section>
     );

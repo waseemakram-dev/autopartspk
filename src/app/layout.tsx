@@ -4,7 +4,7 @@ import { SmoothScroll } from '@/components/SmoothScroll';
 
 export const metadata: Metadata = {
     title: 'Auto Parts & Accessories PK | Genuine Car Spare Parts Bahawalpur',
-    description: 'Bahawalpur #1 genuine Toyota, Honda, Suzuki auto spare parts store. Fast counter pickup at Dubai Chowk Model Town & same-day delivery across Ahmedpur, Yazman & Lodhran.',
+    description: 'Bahawalpur #1 genuine Toyota, Honda, Suzuki auto spare parts store. Fast counter pickup at Ayyoub Chowk near Cheeka Wala Chowk & same-day delivery across Ahmedpur, Yazman & Lodhran.',
     keywords: [
         'Auto Parts Bahawalpur',
         'Toyota Spare Parts Bahawalpur',
@@ -22,6 +22,14 @@ export const metadata: Metadata = {
         locale: 'en_PK',
         type: 'website',
     },
+    icons: {
+        icon: [
+            { url: '/favicon.png', type: 'image/png' },
+            { url: '/favicon.ico' },
+        ],
+        shortcut: '/favicon.png',
+        apple: '/favicon.png',
+    },
 };
 
 export default function RootLayout({
@@ -36,11 +44,11 @@ export default function RootLayout({
         "@id": "https://autopartsbahawalpur.pk/#store",
         "name": "Auto Parts & Accessories PK",
         "image": "https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=1200",
-        "telephone": "+923008687890",
+        "telephone": "+923045759687",
         "priceRange": "PKR",
         "address": {
             "@type": "PostalAddress",
-            "streetAddress": "Shop #4-5, Near Dubai Chowk, Model Town",
+            "streetAddress": "Ayyoub Chowk near Cheeka Wala Chowk",
             "addressLocality": "Bahawalpur",
             "addressRegion": "Punjab",
             "postalCode": "63100",
@@ -85,7 +93,7 @@ export default function RootLayout({
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
                 />
             </head>
-            <body className="min-h-screen bg-[#e2e8ea] text-[#12161f] antialiased">
+            <body className="min-h-screen bg-white text-[#0f1115] antialiased selection:bg-[#e03627] selection:text-white">
                 <SmoothScroll>
                     {children}
                 </SmoothScroll>

@@ -24,7 +24,7 @@ export const CtaSection: React.FC = () => {
     const [isSettled, setIsSettled] = useState(false);
 
     const whatsappLink = `https://wa.me/${shopInfo.whatsapp}?text=${encodeURIComponent(
-        "Hello! I am looking for genuine auto spare parts. Please share pricing and availability."
+        "Assalam o Alaikum! Mujhe Auto Parts & Accessories PK Bahawalpur se car spare parts ki inquiry karni hai."
     )}`;
     const phoneLink = `tel:${shopInfo.phone.replace(/\s+/g, '')}`;
 
@@ -41,64 +41,61 @@ export const CtaSection: React.FC = () => {
         const frontWheel = frontWheelRef.current;
         const rearWheel = rearWheelRef.current;
 
-        if (!section || !car || !card || !ropePath || !carHook || !cardHook) return;
+        const mm = gsap.matchMedia();
 
-        // Dynamic rope path calculation
-        const updateRope = (progress = 0) => {
-            if (!section || !carHook || !cardHook || !ropePath) return;
+        // 💻 DESKTOP ONLY (min-width: 768px): Full GSAP Scroll Animation & Car Towing
+        mm.add("(min-width: 768px)", () => {
+            if (!section || !car || !card || !ropePath || !carHook || !cardHook) return;
 
-            const sectionRect = section.getBoundingClientRect();
-            const carHookRect = carHook.getBoundingClientRect();
-            const cardHookRect = cardHook.getBoundingClientRect();
+            // Dynamic rope path calculation
+            const updateRope = (progress = 0) => {
+                if (!section || !carHook || !cardHook || !ropePath) return;
 
-            // Rope endpoints relative to section coordinate space
-            const x1 = carHookRect.left + carHookRect.width / 2 - sectionRect.left;
-            const y1 = carHookRect.top + carHookRect.height / 2 - sectionRect.top;
+                const sectionRect = section.getBoundingClientRect();
+                const carHookRect = carHook.getBoundingClientRect();
+                const cardHookRect = cardHook.getBoundingClientRect();
 
-            const x2 = cardHookRect.left + cardHookRect.width / 2 - sectionRect.left;
-            const y2 = cardHookRect.top + cardHookRect.height / 2 - sectionRect.top;
+                // Rope endpoints relative to section coordinate space
+                const x1 = carHookRect.left + carHookRect.width / 2 - sectionRect.left;
+                const y1 = carHookRect.top + carHookRect.height / 2 - sectionRect.top;
 
-            const dx = x2 - x1;
-            const dy = y2 - y1;
-            const dist = Math.sqrt(dx * dx + dy * dy);
+                const x2 = cardHookRect.left + cardHookRect.width / 2 - sectionRect.left;
+                const y2 = cardHookRect.top + cardHookRect.height / 2 - sectionRect.top;
 
-            // Natural sag curve — tighter when under tension, droopier when slack
-            const midX = (x1 + x2) / 2;
-            const sag = Math.min(40, Math.max(6, dist * 0.05 * (1 - progress * 0.5)));
-            const midY = (y1 + y2) / 2 + sag;
+                const dx = x2 - x1;
+                const dy = y2 - y1;
+                const dist = Math.sqrt(dx * dx + dy * dy);
 
-            const pathData = `M ${x1},${y1} Q ${midX},${midY} ${x2},${y2}`;
-            ropePath.setAttribute('d', pathData);
+                // Natural sag curve
+                const midX = (x1 + x2) / 2;
+                const sag = Math.min(40, Math.max(6, dist * 0.05 * (1 - progress * 0.5)));
+                const midY = (y1 + y2) / 2 + sag;
 
-            // Sync the fiber highlight layer to the same curve
-            const fiberEl = document.getElementById('ropeFiberPath');
-            if (fiberEl) fiberEl.setAttribute('d', pathData);
+                const pathData = `M ${x1},${y1} Q ${midX},${midY} ${x2},${y2}`;
+                ropePath.setAttribute('d', pathData);
+                if (ropeShadow) {
+                    ropeShadow.setAttribute('d', `M ${x1},${y1 + 4} Q ${midX},${midY + 4} ${x2},${y2 + 4}`);
+                }
 
-            if (ropeShadow) {
-                const shadowPathData = `M ${x1},${y1 + 10} Q ${midX},${midY + 14} ${x2},${y2 + 10}`;
-                ropeShadow.setAttribute('d', shadowPathData);
-            }
-        };
+                // Sync the fiber highlight layer
+                const fiberEl = document.getElementById('ropeFiberPath');
+                if (fiberEl) fiberEl.setAttribute('d', pathData);
+                if (ropeShadow) {
+                    const shadowPathData = `M ${x1},${y1 + 10} Q ${midX},${midY + 14} ${x2},${y2 + 10}`;
+                    ropeShadow.setAttribute('d', shadowPathData);
+                }
+            };
 
-        const ctx = gsap.context(() => {
-            const isMobile = window.innerWidth < 768;
             const screenW = window.innerWidth;
-
-            // Distance offsets
-            // Car starts off-screen right, card starts even further right (car enters FIRST)
-            const carStartOffset = screenW + (isMobile ? 120 : 280);
-            // Card is much further right so it stays hidden while car enters
-            const cardStartOffset = screenW + (isMobile ? 800 : 1200);
-            // Where the car pauses after entering to let rope become taut (center-right of screen)
-            const carMidX = isMobile ? screenW * 0.1 : screenW * 0.12;
-            // Where car is when card reaches center (car is now left-of-center)
-            const carPullTargetX = isMobile ? -(screenW * 0.3) : -(screenW * 0.35);
+            const carStartOffset = screenW + 280;
+            const cardStartOffset = screenW + 1200;
+            const carMidX = screenW * 0.12;
+            const carPullTargetX = -(screenW * 0.35);
             const carExitX = -(screenW + 500);
 
             // Initial positions
             gsap.set(car, { x: carStartOffset, y: 0, opacity: 1 });
-            // Card starts FAR right, hidden, waiting to be pulled
-            gsap.set(card, { x: cardStartOffset, y: 0, rotation: isMobile ? -2 : -4, scale: 0.95 });
+            gsap.set(card, { x: cardStartOffset, y: 0, rotation: -4, scale: 0.95 });
             gsap.set([ropePath, ropeShadow], { opacity: 1 });
 
             // Pinned GSAP ScrollTrigger Timeline
@@ -113,35 +110,27 @@ export const CtaSection: React.FC = () => {
                     anticipatePin: 1,
                     onUpdate: (self) => {
                         updateRope(self.progress);
-                        if (self.progress >= 0.58) {
-                            setIsSettled(true);
-                        } else {
-                            setIsSettled(false);
-                        }
+                        setIsSettled(self.progress >= 0.58);
                     }
                 }
             });
 
-            // ============================================================
-            // PHASE 1 (0.0 → 0.28): Car ENTERS ALONE from right
-            // Card is still hidden off-screen right
-            // ============================================================
+            // PHASE 1: Car ENTERS ALONE from right
             tl.to(
                 car,
                 {
-                    x: carMidX,   // Car moves to center-right of screen
+                    x: carMidX,
                     duration: 0.28,
-                    ease: 'power2.out'
+                    ease: 'power2.out',
                 },
                 0
             );
 
-            // Wheels spin during entry
             if (frontWheel && rearWheel) {
                 tl.to(
                     [frontWheel, rearWheel],
                     {
-                        rotation: -540,
+                        rotation: -720,
                         transformOrigin: '50% 50%',
                         duration: 0.28,
                         ease: 'none'
@@ -150,10 +139,7 @@ export const CtaSection: React.FC = () => {
                 );
             }
 
-            // ============================================================
-            // PHASE 2 (0.28 → 0.62): Car PULLS card from right to center
-            // Car continues left while rope drags card into center
-            // ============================================================
+            // PHASE 2: Rope tightens & pulls card in
             tl.to(
                 car,
                 {
@@ -164,25 +150,24 @@ export const CtaSection: React.FC = () => {
                 0.28
             );
 
-            // Card starts being pulled at the same moment (rope becomes taut)
             tl.to(
                 card,
                 {
                     x: 0,
                     rotation: 0,
                     scale: 1,
-                    duration: 0.32,
+                    opacity: 1,
+                    duration: 0.34,
                     ease: 'power2.out'
                 },
-                0.3   // slight delay so car clearly moves first before card follows
+                0.28
             );
 
-            // Wheels continue spinning through pull phase
             if (frontWheel && rearWheel) {
                 tl.to(
                     [frontWheel, rearWheel],
                     {
-                        rotation: -1440,
+                        rotation: -1800,
                         transformOrigin: '50% 50%',
                         duration: 0.34,
                         ease: 'none'
@@ -191,125 +176,108 @@ export const CtaSection: React.FC = () => {
                 );
             }
 
-            // ============================================================
-            // PHASE 3 (0.62 → 0.87): Car EXITS left, rope disconnects
-            // Card stays centered and locked
-            // ============================================================
+            // PHASE 3: Car drives off left
             tl.to(
                 car,
                 {
                     x: carExitX,
-                    duration: 0.25,
+                    duration: 0.38,
                     ease: 'power2.in'
                 },
                 0.62
             );
 
-            // Rope fades as car disconnects
+            if (frontWheel && rearWheel) {
+                tl.to(
+                    [frontWheel, rearWheel],
+                    {
+                        rotation: -3200,
+                        transformOrigin: '50% 50%',
+                        duration: 0.38,
+                        ease: 'none'
+                    },
+                    0.62
+                );
+            }
+
+            // Rope fades out
             if (ropePath) {
                 tl.to(
                     [ropePath, ropeShadow],
                     {
                         opacity: 0,
-                        duration: 0.1,
-                        ease: 'power1.out'
-                    },
-                    0.63
-                );
-            }
-
-            // Wheels spin hard during exit acceleration
-            if (frontWheel && rearWheel) {
-                tl.to(
-                    [frontWheel, rearWheel],
-                    {
-                        rotation: -2880,
-                        transformOrigin: '50% 50%',
-                        duration: 0.25,
+                        duration: 0.15,
                         ease: 'power2.in'
                     },
                     0.62
                 );
             }
 
-            // Card settles with glow emphasis
-            tl.to(
-                card,
-                {
-                    boxShadow: '0 25px 60px -15px rgba(226, 59, 44, 0.25), 0 0 50px 0 rgba(0, 0, 0, 0.7)',
-                    duration: 0.12,
-                    ease: 'power1.out'
-                },
-                0.62
-            );
-
             // Hold state until pin ends
             tl.to({}, { duration: 0.4 }, 0.6);
 
             // Initial render of rope
             updateRope(0);
-        }, sectionRef);
+        });
 
-        const handleResize = () => {
-            ScrollTrigger.refresh();
-            updateRope();
-        };
+        // 📱 MOBILE ONLY (max-width: 767px): Pure static state, zero animation, zero pinning
+        mm.add("(max-width: 767px)", () => {
+            setIsSettled(true);
+            if (card) {
+                gsap.set(card, { clearProps: "all" });
+            }
+        });
 
-        window.addEventListener('resize', handleResize);
-
-        return () => {
-            window.removeEventListener('resize', handleResize);
-            ctx.revert();
-        };
+        return () => mm.revert();
     }, []);
 
     return (
         <section
             ref={sectionRef}
             id="cta-section"
-            className="relative w-full h-screen bg-[#0c1017] border-y border-white/10 overflow-hidden flex items-center justify-center select-none"
+            className="relative w-full py-16 sm:py-24 md:py-0 md:h-screen bg-[#0c1017] border-y border-white/10 overflow-hidden flex items-center justify-center select-none"
         >
-            {/* Automotive Racing Ambient Background */}
+            {/* Automotive Racing Ambient Track Background */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
-                {/* Asphalt Grid Pattern */}
+                {/* Track Grid Pattern */}
                 <div
                     className="absolute inset-0 opacity-15"
                     style={{
-                        backgroundImage: `radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px)`,
+                        backgroundImage: `radial-gradient(rgba(255, 255, 255, 0.15) 1.5px, transparent 1.5px)`,
                         backgroundSize: '28px 28px'
                     }}
                 />
 
                 {/* Speed streak lines */}
-                <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#e23b2c]/30 to-transparent -translate-y-24" />
+                <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#e03627]/30 to-transparent -translate-y-24" />
                 <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent translate-y-28" />
 
-                {/* Ambient Glows */}
-                <div className="absolute -top-32 left-1/4 w-96 h-96 bg-[#e23b2c]/15 rounded-full blur-3xl pointer-events-none" />
-                <div className="absolute -bottom-32 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
+                {/* Subtle Ambient Red Glows */}
+                <div className="absolute -top-32 left-1/4 w-96 h-96 bg-[#e03627]/12 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute -bottom-32 right-1/4 w-96 h-96 bg-[#e03627]/10 rounded-full blur-3xl pointer-events-none" />
             </div>
 
-            {/* Dynamic SVG Rope Canvas Overlay */}
+            {/* Dynamic SVG Rope Canvas Overlay (Desktop Only) */}
             <svg
-                className="absolute inset-0 w-full h-full pointer-events-none z-20"
+                className="hidden md:block absolute inset-0 w-full h-full pointer-events-none z-20"
                 style={{ overflow: 'visible' }}
             >
                 <defs>
-                    {/* Rope color: warm steel/hemp gradient */}
+                    {/* Tow Strap: Racing Red Gradient */}
                     <linearGradient id="towStrapGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stopColor="#92400e" />
-                        <stop offset="20%" stopColor="#d97706" />
-                        <stop offset="50%" stopColor="#fbbf24" />
-                        <stop offset="80%" stopColor="#d97706" />
-                        <stop offset="100%" stopColor="#92400e" />
+                        <stop offset="0%" stopColor="#7f1d1d" />
+                        <stop offset="30%" stopColor="#dc2626" />
+                        <stop offset="50%" stopColor="#ef4444" />
+                        <stop offset="70%" stopColor="#dc2626" />
+                        <stop offset="100%" stopColor="#7f1d1d" />
                     </linearGradient>
 
-                    {/* Rope highlight sheen gradient */}
+                    {/* Strap highlight sheen */}
                     <linearGradient id="ropeHighlight" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stopColor="#fef3c7" stopOpacity="0.0" />
-                        <stop offset="35%" stopColor="#fef3c7" stopOpacity="0.55" />
-                        <stop offset="65%" stopColor="#fef3c7" stopOpacity="0.55" />
-                        <stop offset="100%" stopColor="#fef3c7" stopOpacity="0.0" />
+                        <stop offset="0%" stopColor="#ffffff" stopOpacity="0.0" />
+                        <stop offset="35%" stopColor="#ffffff" stopOpacity="0.6" />
+                        <stop offset="65%" stopColor="#ffffff" stopOpacity="0.6" />
+                        <stop offset="100%" stopColor="#ffffff" stopOpacity="0.0" />
                     </linearGradient>
 
                     {/* Drop shadow filter */}
@@ -353,11 +321,11 @@ export const CtaSection: React.FC = () => {
             </svg>
 
             {/* ========================================================= */}
-            {/* 🚗 MODERN SIDE-VIEW SVG SPORTS CAR                       */}
+            {/* 🚗 MODERN SIDE-VIEW SVG SPORTS CAR (Desktop Only)         */}
             {/* ========================================================= */}
             <div
                 ref={carRef}
-                className="absolute top-1/2 -translate-y-[110%] sm:-translate-y-[105%] z-30 pointer-events-none will-change-transform"
+                className="hidden md:block absolute top-1/2 -translate-y-[110%] sm:-translate-y-[105%] z-30 pointer-events-none will-change-transform"
                 style={{ transformOrigin: 'center center' }}
             >
                 <div className="relative w-[260px] sm:w-[360px] md:w-[440px] lg:w-[480px]">
@@ -366,7 +334,7 @@ export const CtaSection: React.FC = () => {
                         ref={carHookRef}
                         className="absolute right-[8px] top-[74%] w-4 h-4 -translate-y-1/2 flex items-center justify-center"
                     >
-                        <span className="w-3 h-3 rounded-full bg-amber-400 border-2 border-slate-900 shadow-md shadow-amber-500/50 block animate-pulse" />
+                        <span className="w-3 h-3 rounded-full bg-[#e03627] border-2 border-slate-900 shadow-md shadow-red-500/50 block animate-pulse" />
                     </div>
 
                     {/* Headlight Forward Beam */}
@@ -522,86 +490,83 @@ export const CtaSection: React.FC = () => {
             {/* ========================================================= */}
             <div
                 ref={cardRef}
-                className="relative z-40 w-full max-w-[800px] mx-auto px-4 sm:px-6 will-change-transform"
+                className="relative z-40 w-full max-w-[800px] mx-auto px-4 sm:px-6"
             >
-                {/* Metal Tow Hook Ring on Left Edge */}
+                {/* Metal Tow Hook Ring on Left Edge (Desktop Only) */}
                 <div
                     ref={cardHookRef}
-                    className="absolute -left-1 sm:left-1.5 top-8 sm:top-12 z-50 w-7 h-7 sm:w-8 sm:h-8 -translate-x-1/2 flex items-center justify-center pointer-events-none"
+                    className="hidden md:flex absolute -left-1 sm:left-1.5 top-8 sm:top-12 z-50 w-7 h-7 sm:w-8 sm:h-8 -translate-x-1/2 items-center justify-center pointer-events-none"
                 >
-                    <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 border-2 border-slate-900 flex items-center justify-center shadow-lg shadow-amber-500/40">
-                        <div className="w-2.5 h-2.5 rounded-full bg-[#0c1017] border border-amber-300" />
+                    <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gradient-to-br from-[#e03627] to-[#991b1b] border-2 border-slate-900 flex items-center justify-center shadow-lg shadow-red-500/40">
+                        <div className="w-2.5 h-2.5 rounded-full bg-[#0c1017] border border-[#e03627]" />
                     </div>
                 </div>
 
                 {/* Main Dark Card Container */}
-                <div className="bg-[#11141b] rounded-3xl p-7 sm:p-10 border border-[#e23b2c]/25 shadow-[0_8px_60px_rgba(0,0,0,0.9)] relative overflow-hidden">
-                    {/* Top Racing Accent Stripe */}
-                    <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#e23b2c] via-amber-400 to-[#e23b2c]" />
+                <div className="bg-[#11141b] rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-12 border border-white/10 shadow-[0_8px_60px_rgba(0,0,0,0.9)] relative overflow-hidden text-center flex flex-col items-center">
+                    {/* Top Racing Accent Stripe (Pure Brand Red) */}
+                    <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#e03627]" />
 
-                    {/* Corner Ambient Glows */}
-                    <div className="absolute top-0 right-0 w-56 h-56 bg-[#e23b2c]/10 rounded-full blur-3xl pointer-events-none" />
-                    <div className="absolute bottom-0 left-0 w-56 h-56 bg-emerald-600/8 rounded-full blur-3xl pointer-events-none" />
+                    {/* Corner Ambient Glow */}
+                    <div className="absolute top-0 right-0 w-56 h-56 bg-[#e03627]/10 rounded-full blur-3xl pointer-events-none" />
 
-                    {/* Top Row: Badge + Live Indicator */}
-                    <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
-                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#e23b2c]/10 border border-[#e23b2c]/20 text-[10px] font-machina font-bold text-[#ff5748] uppercase tracking-widest">
-                            <Sparkles className="w-3 h-3 animate-spin" style={{ animationDuration: '4s' }} />
+                    {/* Top Row: Badge + Live Indicator (Centered) */}
+                    <div className="flex flex-wrap items-center justify-center gap-3 mb-5 sm:mb-6">
+                        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#e03627]/10 border border-[#e03627]/30 text-[10px] sm:text-[11px] font-machina font-bold text-[#e03627] uppercase tracking-widest">
+                            <Sparkles className="w-3.5 h-3.5" />
                             <span>Bahawalpur's #1 Genuine Parts Store</span>
                         </div>
-                        <div className="inline-flex items-center gap-1.5 text-[11px] font-machina text-emerald-400">
-                            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse block" />
+                        <div className="inline-flex items-center gap-1.5 text-[11px] font-machina text-slate-300">
+                            <span className="w-2 h-2 rounded-full bg-[#e03627] animate-pulse block" />
                             <span>WhatsApp Desk Live</span>
                         </div>
                     </div>
 
-                    {/* Main Heading */}
-                    <h2 className="font-druk text-2xl sm:text-3xl md:text-4xl uppercase tracking-tight text-white leading-tight mb-3">
+                    {/* Main Heading (Centered & High-Impact) */}
+                    <h2 className="font-druk text-2xl sm:text-3xl md:text-4xl lg:text-5xl uppercase tracking-tight text-white leading-tight mb-3 max-w-2xl mx-auto">
                         NEED CAR SPARE PARTS?{' '}
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff4d3d] via-[#ff7a6e] to-amber-400">
+                        <span className="text-[#e03627]">
                             CHAT ON WHATSAPP NOW!
                         </span>
                     </h2>
 
-                    {/* Subheading */}
-                    <p className="text-slate-400 font-sans text-xs sm:text-sm leading-relaxed mb-8 max-w-xl">
+                    {/* Subheading (Centered) */}
+                    <p className="text-slate-400 font-sans text-xs sm:text-sm md:text-base leading-relaxed mb-6 sm:mb-8 max-w-xl mx-auto">
                         Send a photo of your old part or your vehicle chassis number — our auto specialists will confirm exact OEM prices and stock in <strong className="text-white">under 5 minutes</strong>.
                     </p>
 
-                    {/* Buttons Row — Using existing Button components */}
-                    <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-8">
-                        {/* WhatsApp CTA — BookCallButton (bright white pill) */}
-                        <BookCallButton
-                            text="Order Parts on WhatsApp"
+                    {/* Buttons Row — Matching GrowthPlanButton Components (Centered) */}
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-6 sm:mb-8 w-full sm:w-auto">
+                        {/* WhatsApp CTA */}
+                        <GrowthPlanButton
+                            text="Inquire on WhatsApp"
                             href={whatsappLink}
-                            className="w-full sm:w-auto"
+                            variant="red"
+                            className="w-full sm:w-auto text-center justify-center shadow-xl shadow-red-500/30"
                         />
 
-                        {/* Call CTA — GrowthPlanButton (dark pill with arrows) */}
+                        {/* Call CTA */}
                         <GrowthPlanButton
                             text={`Call: ${shopInfo.phone}`}
                             href={phoneLink}
-                            className="w-full sm:w-auto"
+                            variant="outline"
+                            className="w-full sm:w-auto text-center justify-center"
                         />
                     </div>
 
-                    {/* 3 Trust Badges Footer */}
-                    <div className="flex flex-wrap items-center gap-x-6 gap-y-2 pt-5 border-t border-white/8 text-slate-400 font-machina text-[10px] sm:text-[11px] uppercase tracking-wider">
-                        <div className="flex items-center gap-1.5">
-                            <ShieldCheck className="w-3.5 h-3.5 text-[#ff4d3d] shrink-0" />
-                            <span>100% Genuine OEM</span>
+                    {/* 3 Trust Badges Footer (Centered 3 Columns) */}
+                    <div className="w-full grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-4 pt-5 border-t border-white/10 text-slate-300 font-machina text-[11px] sm:text-xs uppercase tracking-wider">
+                        <div className="flex items-center justify-center gap-2 text-center">
+                            <ShieldCheck className="w-4 h-4 text-[#e03627] shrink-0" />
+                            <span>Quality Replacement Spares</span>
                         </div>
-                        <div className="flex items-center gap-1.5">
-                            <Zap className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                            <span>30-Min Local Delivery</span>
+                        <div className="flex items-center justify-center gap-2 text-center">
+                            <Zap className="w-4 h-4 text-[#e03627] shrink-0" />
+                            <span>Instant Counter Inspection</span>
                         </div>
-                        <div className="flex items-center gap-1.5">
-                            <MapPin className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                            <span>Dubai Chowk, Model Town</span>
-                        </div>
-                        <div className="flex items-center gap-1.5">
-                            <Phone className="w-3.5 h-3.5 text-blue-400 shrink-0" />
-                            <span>Counter Pickup Available</span>
+                        <div className="flex items-center justify-center gap-2 text-center">
+                            <Phone className="w-4 h-4 text-[#e03627] shrink-0" />
+                            <span>Direct Handover</span>
                         </div>
                     </div>
                 </div>

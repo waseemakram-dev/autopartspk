@@ -73,10 +73,10 @@ export const shopInfo: ShopInfo = {
     name: "Auto Parts & Accessories PK",
     tagline: "Bahawalpur's #1 Genuine Japanese & Pakistani Auto Spare Parts Store",
     city: "Bahawalpur",
-    address: "Shop #4-5, Auto Market, Near Dubai Chowk, Model Town",
-    landmark: "Near Dubai Chowk, Model Town Bahawalpur",
-    phone: "+92 300 8687890",
-    whatsapp: "923008687890",
+    address: "Ayyoub Chowk near Cheeka Wala Chowk, Bahawalpur",
+    landmark: "Ayyoub Chowk near Cheeka Wala Chowk, Bahawalpur",
+    phone: "+92 304 5759687",
+    whatsapp: "923045759687",
     email: "info@autopartsaccessories.pk",
     timings: "9:00 AM - 9:30 PM",
     days: "Monday to Saturday (Friday 2:30 PM onwards)",
@@ -155,7 +155,7 @@ export const partCategories: Category[] = [
         itemCount: 420,
         description: 'Ceramic Brake Pads, Disc Rotors, Brake Calipers, Wheel Cylinders & Brake Oil',
         subcategories: ['Ceramic Brake Pads', 'Front/Rear Disc Rotors', 'Brake Master Cylinder', 'ABS Sensors', 'Brake Fluid DOT4'],
-        image: 'https://images.unsplash.com/photo-1600790142055-619df03207e6?q=80&w=600&auto=format&fit=crop'
+        image: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=600&auto=format&fit=crop'
     },
     {
         id: 'suspension',
@@ -165,7 +165,7 @@ export const partCategories: Category[] = [
         itemCount: 560,
         description: 'Gas Shocks, Strut Mounts, Ball Joints, Tie Rod Ends, Control Arms & Bushing Kits',
         subcategories: ['Front Shock Absorbers', 'Rear Shocks', 'Lower Control Arms', 'Tie Rod Ends', 'Complete Bushing Sets'],
-        image: 'https://images.unsplash.com/photo-1486006920555-c77dce18193b?q=80&w=600&auto=format&fit=crop'
+        image: 'https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=600&auto=format&fit=crop'
     },
     {
         id: 'engine',
@@ -175,7 +175,7 @@ export const partCategories: Category[] = [
         itemCount: 780,
         description: 'Iridium Spark Plugs, Timing Belts, Fan Belts, Engine Mountings, Gaskets & Water Pumps',
         subcategories: ['Iridium Spark Plugs', 'Serpentine & Fan Belts', 'Hydraulic Engine Mounts', 'Head Gaskets', 'Ignition Coils'],
-        image: 'https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?q=80&w=600&auto=format&fit=crop'
+        image: 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=600&auto=format&fit=crop'
     },
     {
         id: 'filters',
@@ -185,7 +185,7 @@ export const partCategories: Category[] = [
         itemCount: 340,
         description: 'Engine Oil Filters, AC Cabin Filters, High-Flow Air Filters & Fuel Filters',
         subcategories: ['OEM Oil Filters', 'High Filtration Air Filters', 'Charcoal Cabin Filters', 'Fuel Strainers', 'Transmission Oil'],
-        image: 'https://images.unsplash.com/photo-1635773054018-22c388422857?q=80&w=600&auto=format&fit=crop'
+        image: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=600&auto=format&fit=crop'
     },
     {
         id: 'body-lights',
@@ -195,7 +195,7 @@ export const partCategories: Category[] = [
         itemCount: 490,
         description: 'LED Headlights, Tail Lamps, Fog Lamps, Retractable Mirrors, Bumpers & Grills',
         subcategories: ['Projector Headlights', 'LED Tail Lamps', 'Power Side Mirrors', 'Front Bumpers', 'Radiator Grilles'],
-        image: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=600&auto=format&fit=crop'
+        image: 'https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?q=80&w=600&auto=format&fit=crop'
     },
     {
         id: 'clutch-transmission',
@@ -205,7 +205,7 @@ export const partCategories: Category[] = [
         itemCount: 310,
         description: 'Aisin / Exedy Clutch Plates, Pressure Plates, Release Bearings & Gear Cables',
         subcategories: ['Aisin Clutch Sets', 'Pressure Plates', 'Clutch Release Bearings', 'Flywheels', 'CV Axles / Drive Shafts'],
-        image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=600&auto=format&fit=crop'
+        image: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=600&auto=format&fit=crop'
     }
 ];
 
@@ -220,7 +220,7 @@ export const featuredProducts: Product[] = [
         pricePKR: 6850,
         condition: '100% Genuine OEM',
         inStock: true,
-        image: 'https://images.unsplash.com/photo-1600790142055-619df03207e6?q=80&w=500&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=500&auto=format&fit=crop',
         rating: 4.9,
         reviewsCount: 38,
         description: 'Zero noise, ultra-low brake dust Japanese ceramic compound for supreme braking grip.'
@@ -235,7 +235,7 @@ export const featuredProducts: Product[] = [
         pricePKR: 19500,
         condition: '100% Genuine OEM',
         inStock: true,
-        image: 'https://images.unsplash.com/photo-1486006920555-c77dce18193b?q=80&w=500&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=500&auto=format&fit=crop',
         rating: 5.0,
         reviewsCount: 29,
         description: 'Original Japanese twin-tube gas shocks providing factory ride comfort and road control.'
@@ -250,7 +250,7 @@ export const featuredProducts: Product[] = [
         pricePKR: 8200,
         condition: '100% Genuine OEM',
         inStock: true,
-        image: 'https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?q=80&w=500&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=500&auto=format&fit=crop',
         rating: 4.9,
         reviewsCount: 52,
         description: 'High fuel efficiency, instant winter ignition, 100,000 km ultra-long spark life.'
@@ -265,7 +265,7 @@ export const featuredProducts: Product[] = [
         pricePKR: 7400,
         condition: '100% Genuine OEM',
         inStock: true,
-        image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=500&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=500&auto=format&fit=crop',
         rating: 4.8,
         reviewsCount: 44,
         description: 'Feather-light pedal feel, zero vibration pick up, authentic Aisin Japan engraving.'
@@ -280,7 +280,7 @@ export const featuredProducts: Product[] = [
         pricePKR: 3200,
         condition: '100% Genuine OEM',
         inStock: true,
-        image: 'https://images.unsplash.com/photo-1635773054018-22c388422857?q=80&w=500&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=500&auto=format&fit=crop',
         rating: 4.9,
         reviewsCount: 22,
         description: 'Maximum dust capture in South Punjab dusty climate, protects engine throttle body.'
@@ -295,7 +295,7 @@ export const featuredProducts: Product[] = [
         pricePKR: 48500,
         condition: 'High-Grade Aftermarket',
         inStock: true,
-        image: 'https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=500&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?q=80&w=500&auto=format&fit=crop',
         rating: 5.0,
         reviewsCount: 17,
         description: 'Motorsport racing bronze finish, aggressive stance, PCD 4x100/114.3 dual fitment.'
@@ -362,7 +362,7 @@ export const servicesList: ServiceItem[] = [
         id: 'counter-pickup',
         title: 'Instant Bahawalpur Counter Pickup',
         urduTitle: 'Instant Counter Pickup',
-        description: 'Visit our Dubai Chowk Model Town counter to inspect parts in person and purchase at wholesale rates with instant handover.',
+        description: 'Visit our Ayyoub Chowk counter near Cheeka Wala Chowk to inspect parts in person and purchase at wholesale rates with instant handover.',
         icon: 'Store',
         badge: 'Walk-in'
     },
@@ -383,7 +383,7 @@ export const faqsData = [
     },
     {
         q: "I don't know the part name or code. How can I place an order?",
-        a: "It's simple! Take 2 clear photos of your old or damaged part with your phone and send them to our WhatsApp helpline (+92 300 8687890). Our auto specialists will immediately identify the part and provide instant pricing and stock status."
+        a: "It's simple! Take 2 clear photos of your old or damaged part with your phone and send them to our WhatsApp helpline (+92 304 5759687). Our auto specialists will immediately identify the part and provide instant pricing and stock status."
     },
     {
         q: "Do you offer delivery outside Bahawalpur to Ahmedpur East, Yazman, or Lodhran?",
@@ -391,7 +391,7 @@ export const faqsData = [
     },
     {
         q: "What are your store hours and physical location?",
-        a: "Our physical store is located at Model Town, Near Dubai Chowk, Bahawalpur. We are open Monday through Saturday from 9:00 AM to 9:30 PM."
+        a: "Our physical store is located at Ayyoub Chowk near Cheeka Wala Chowk, Bahawalpur. We are open Monday through Saturday from 9:00 AM to 9:30 PM."
     },
     {
         q: "What is your exchange policy if a part does not fit?",

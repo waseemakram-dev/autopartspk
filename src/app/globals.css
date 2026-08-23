@@ -26,12 +26,7 @@
     }
 }
 
-/* Hide default browser cursor on desktop so only custom difference cursor shows */
-@media (hover: hover) and (pointer: fine) {
-    *, *::before, *::after, body, html, a, button, input, select, textarea, [role="button"], .cursor-pointer {
-        cursor: none !important;
-    }
-}
+
 
 .font-druk {
     font-family: 'Rajdhani', 'Chakra Petch', 'Syne', -apple-system, sans-serif;
