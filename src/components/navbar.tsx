@@ -62,35 +62,42 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenPartFinder, onOpenLocation
         {/* 2. CENTER DESKTOP NAVIGATION LINKS */}
         <nav className="hidden lg:flex items-center gap-7 text-xs font-machina font-bold uppercase tracking-wider text-slate-700">
           <a
-            href="#brands"
+            href="/about"
+            className="hover:text-[#e03627] transition-colors relative py-1 hover:after:w-full after:w-0 after:h-[2px] after:bg-[#e03627] after:absolute after:bottom-0 after:left-0 after:transition-all"
+          >
+            About Us
+          </a>
+
+          <a
+            href="/#brands"
             className="hover:text-[#e03627] transition-colors relative py-1 hover:after:w-full after:w-0 after:h-[2px] after:bg-[#e03627] after:absolute after:bottom-0 after:left-0 after:transition-all"
           >
             Car Brands
           </a>
 
           <a
-            href="#categories"
+            href="/#categories"
             className="hover:text-[#e03627] transition-colors relative py-1 hover:after:w-full after:w-0 after:h-[2px] after:bg-[#e03627] after:absolute after:bottom-0 after:left-0 after:transition-all"
           >
             Spare Categories
           </a>
 
           <a
-            href="#products"
+            href="/#products"
             className="hover:text-[#e03627] transition-colors relative py-1 hover:after:w-full after:w-0 after:h-[2px] after:bg-[#e03627] after:absolute after:bottom-0 after:left-0 after:transition-all"
           >
             Stock Catalog
           </a>
 
           <a
-            href="#snap-send"
+            href="/#snap-send"
             className="hover:text-[#e03627] transition-colors relative py-1 hover:after:w-full after:w-0 after:h-[2px] after:bg-[#e03627] after:absolute after:bottom-0 after:left-0 after:transition-all"
           >
             Snap & Send
           </a>
 
           <a
-            href="#bahawalpur"
+            href="/#bahawalpur"
             className="hover:text-[#e03627] transition-colors relative py-1 hover:after:w-full after:w-0 after:h-[2px] after:bg-[#e03627] after:absolute after:bottom-0 after:left-0 after:transition-all"
           >
             Store Location

@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { SmoothScroll } from '@/components/SmoothScroll';
+import { SpeedometerLoader } from '@/components/SpeedometerLoader';
+import { Suspense } from 'react';
 
 export const metadata: Metadata = {
     title: 'Auto Parts & Accessories PK | Genuine Car Spare Parts Bahawalpur',
@@ -94,6 +96,9 @@ export default function RootLayout({
                 />
             </head>
             <body className="min-h-screen bg-white text-[#0f1115] antialiased selection:bg-[#e03627] selection:text-white">
+                <Suspense fallback={null}>
+                    <SpeedometerLoader />
+                </Suspense>
                 <SmoothScroll>
                     {children}
                 </SmoothScroll>
