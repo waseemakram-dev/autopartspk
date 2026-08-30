@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { partCategories, Category, shopInfo } from '@/data/partsData';
 import { ArrowUpRight, Wrench, Disc, Activity, Cpu, Filter, Lightbulb, Settings } from 'lucide-react';
 import { GrowthPlanButton } from './Button';
+import { GsapAnimatedHeader } from './GsapAnimatedHeader';
 
 interface CategoryGridProps {
     onSelectCategory?: (categoryId: string) => void;
@@ -35,39 +36,15 @@ export const CategoryGrid: React.FC<CategoryGridProps> = ({ onSelectCategory }) 
         >
             <div className="w-full max-w-[1400px] mx-auto relative z-10">
 
-                {/* 1. Centered Header Section with Motion */}
-                <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14 flex flex-col items-center">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5 }}
-                        className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#e03627]/10 text-xs font-machina font-bold text-[#e03627] uppercase tracking-wider mb-3"
-                    >
-                        <Wrench className="w-3.5 h-3.5" />
-                        <span>FAST-MOVING AUTO SPARES DEPARTMENTS</span>
-                    </motion.div>
-
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.1 }}
-                        className="font-druk text-3xl sm:text-4xl lg:text-5xl uppercase tracking-tight text-[#0f1115] leading-tight mb-3"
-                    >
-                        SPARE PARTS <span className="text-[#e03627]">CATEGORIES</span>
-                    </motion.h2>
-
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                        className="text-slate-600 font-machina text-xs sm:text-sm leading-relaxed max-w-lg mx-auto"
-                    >
-                        Japanese OEM standards ke mutabiq certified braking, suspension, engine aur body spare parts counter pickup ke sath.
-                    </motion.p>
-                </div>
+                {/* GSAP Character Split Header */}
+                <GsapAnimatedHeader
+                    badgeText="FAST-MOVING AUTO SPARES DEPARTMENTS"
+                    badgeIcon={<Wrench className="w-3.5 h-3.5" />}
+                    titleText="SPARE PARTS"
+                    highlightText="CATEGORIES"
+                    descriptionText="Japanese OEM standards ke mutabiq certified braking, suspension, engine aur body spare parts counter pickup ke sath."
+                    align="center"
+                />
 
                 {/* 2. Framer-Powered Category Cards Grid (3 Columns) */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">

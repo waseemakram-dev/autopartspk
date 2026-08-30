@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sparkles, CheckCircle2, ArrowRight, MessageSquare, Car, ShieldCheck, Filter } from 'lucide-react';
 import { shopInfo, featuredProducts } from '@/data/partsData';
+import { GsapAnimatedHeader } from './GsapAnimatedHeader';
 
 export const CarCompatibilityFinder: React.FC = () => {
     const [make, setMake] = useState('Toyota');
@@ -65,19 +66,16 @@ export const CarCompatibilityFinder: React.FC = () => {
             <div className="max-w-4xl mx-auto -mt-12 sm:-mt-20 md:-mt-28 relative z-30">
                 {/* Off-White Card */}
                 <div className="bg-[#f8f9fa] rounded-2xl sm:rounded-3xl p-4 sm:p-8 lg:p-10 border border-slate-200/90 shadow-2xl relative overflow-hidden">
-                    {/* Centered Header */}
-                    <div className="text-center max-w-xl mx-auto space-y-2">
-                        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#e03627]/10 text-xs font-machina font-bold text-[#e03627] uppercase tracking-wider">
-                            <Car className="w-3.5 h-3.5" />
-                            <span>COMPATIBILITY CHECKER</span>
-                        </div>
-                        <h2 className="font-druk text-2xl sm:text-4xl uppercase tracking-tight text-[#0f1115] font-black leading-tight">
-                            Find Products for Your Vehicle
-                        </h2>
-                        <p className="text-xs sm:text-sm text-slate-500 font-machina">
-                            Select your vehicle make and model to see verified compatible replacement spares and parts.
-                        </p>
-                    </div>
+                    {/* GSAP Character Split Header */}
+                    <GsapAnimatedHeader
+                        badgeText="COMPATIBILITY CHECKER"
+                        badgeIcon={<Car className="w-3.5 h-3.5" />}
+                        titleText="FIND PRODUCTS FOR"
+                        highlightText="YOUR VEHICLE"
+                        descriptionText="Select your vehicle make and model to see verified compatible replacement spares and parts."
+                        align="center"
+                        className="!mb-6"
+                    />
 
                     {/* Filter Form */}
                     <form onSubmit={handleViewCompatible} className="mt-6 grid grid-cols-1 sm:grid-cols-12 gap-3.5 items-end">

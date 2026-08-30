@@ -4,28 +4,25 @@ import React from 'react';
 import { shopInfo } from '@/data/partsData';
 import { MapPin, Navigation, Phone, MessageSquare, Clock, ShieldCheck, CheckCircle2, Wrench, PackageCheck, Eye, Store } from 'lucide-react';
 import { BookCallButton, GrowthPlanButton } from './Button';
+import { GsapAnimatedHeader } from './GsapAnimatedHeader';
 
 export const ShopLocationSection: React.FC = () => {
     return (
         <section id="bahawalpur" className="w-full bg-[#f4f7f8] py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8 border-y border-slate-300/60 shadow-sm">
             <div className="w-full max-w-[1400px] mx-auto">
-                
-                {/* Centered Clean Header */}
-                <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14 flex flex-col items-center">
-                    <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#e03627]/10 text-xs font-machina font-bold text-[#e03627] uppercase tracking-wider mb-3">
-                        <MapPin className="w-3.5 h-3.5" />
-                        <span>WALK-IN STORE & COUNTER DESK</span>
-                    </div>
-                    <h2 className="font-druk text-3xl sm:text-4xl lg:text-5xl uppercase tracking-tight text-[#0f1115]">
-                        PHYSICAL STORE LOCATION
-                    </h2>
-                    <p className="text-slate-600 font-machina text-xs sm:text-sm mt-2 max-w-lg leading-relaxed px-2">
-                        Ayyoub Chowk near Cheeka Wala Chowk, Bahawalpur par hamare walk-in counter par tashreef layein. Tamam Japanese aur Pakistani replacement spares live inspect karein.
-                    </p>
-                </div>
+
+                {/* GSAP Character Split Header */}
+                <GsapAnimatedHeader
+                    badgeText="WALK-IN STORE & COUNTER DESK"
+                    badgeIcon={<MapPin className="w-3.5 h-3.5" />}
+                    titleText="PHYSICAL STORE"
+                    highlightText="LOCATION"
+                    descriptionText="Ayyoub Chowk near Cheeka Wala Chowk, Bahawalpur par hamare walk-in counter par tashreef layein. Tamam Japanese aur Pakistani replacement spares live inspect karein."
+                    align="center"
+                />
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8 items-stretch">
-                    
+
                     {/* Left 7 Cols: Store Details & Google Map Embed */}
                     <div className="lg:col-span-7 bg-white rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 md:p-8 border border-slate-200/90 shadow-xl space-y-5 sm:space-y-6 flex flex-col justify-between hover:shadow-2xl transition-shadow duration-300">
                         <div>

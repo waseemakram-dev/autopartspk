@@ -10,37 +10,49 @@ export const SpeedometerLoader: React.FC = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [isFadingOut, setIsFadingOut] = useState(false);
 
-    // 1. Initial Page Load - Fade out smoothly after initial mount
+    // 1. Initial Page Load & Pathname Changes - Fade out smoothly after mount
     useEffect(() => {
-        const timer = setTimeout(() => {
+        setIsFadingOut(false);
+        setIsLoading(true);
+
+        // Keep loader active for 1.8s to display the full speedometer needle rev-up animation
+        const fadeTimer = setTimeout(() => {
             setIsFadingOut(true);
-            setTimeout(() => setIsLoading(false), 400);
-        }, 500);
+        }, 1800);
 
-        return () => clearTimeout(timer);
-    }, []);
+        const hideTimer = setTimeout(() => {
+            setIsLoading(false);
+        }, 2300);
 
-    // 2. Intercept Internal Link Clicks to trigger preloader IMMEDIATELY on click
+        return () => {
+            clearTimeout(fadeTimer);
+            clearTimeout(hideTimer);
+        };
+    }, [pathname]);
+
+    // 2. Intercept Internal Link Clicks to trigger preloader immediately on click
     useEffect(() => {
         const handleLinkClick = (e: MouseEvent) => {
             const target = e.target as HTMLElement;
             const anchor = target.closest('a');
 
             if (anchor && anchor.href) {
-                const targetUrl = new URL(anchor.href, window.location.href);
-                const currentUrl = new URL(window.location.href);
+                try {
+                    const targetUrl = new URL(anchor.href, window.location.href);
+                    const currentUrl = new URL(window.location.href);
 
-                // If internal link and navigating to a different page/path
-                if (
-                    targetUrl.origin === currentUrl.origin &&
-                    targetUrl.pathname !== currentUrl.pathname &&
-                    !anchor.target &&
-                    !e.ctrlKey &&
-                    !e.metaKey
-                ) {
-                    // Trigger loader IMMEDIATELY on click before route transition
-                    setIsLoading(true);
-                    setIsFadingOut(false);
+                    if (
+                        targetUrl.origin === currentUrl.origin &&
+                        targetUrl.pathname !== currentUrl.pathname &&
+                        !anchor.target &&
+                        !e.ctrlKey &&
+                        !e.metaKey
+                    ) {
+                        setIsLoading(true);
+                        setIsFadingOut(false);
+                    }
+                } catch {
+                    // Ignore invalid URLs
                 }
             }
         };
@@ -49,26 +61,30 @@ export const SpeedometerLoader: React.FC = () => {
         return () => window.removeEventListener('click', handleLinkClick);
     }, []);
 
-    // 3. When new route finishes loading, fade out cleanly
-    useEffect(() => {
-        if (isLoading && !isFadingOut) {
-            const timer = setTimeout(() => {
-                setIsFadingOut(true);
-                setTimeout(() => setIsLoading(false), 400);
-            }, 400);
-
-            return () => clearTimeout(timer);
-        }
-    }, [pathname]);
-
     if (!isLoading) return null;
 
     return (
         <div
             id="speedometer-preloader"
-            className={`fixed inset-0 bg-[#000000] z-[15000] flex items-center justify-center transition-opacity duration-400 select-none ${
-                isFadingOut ? 'opacity-0 pointer-events-none' : 'opacity-100 pointer-events-auto'
-            }`}
+            style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                width: '100vw',
+                height: '100vh',
+                backgroundColor: '#000000',
+                zIndex: 99999,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                transition: 'opacity 400ms ease-in-out',
+                opacity: isFadingOut ? 0 : 1,
+                pointerEvents: isFadingOut ? 'none' : 'auto',
+                userSelect: 'none',
+            }}
+            className="select-none"
         >
             <div className="relative w-[160px] h-[160px] border border-white/20 rounded-full flex items-center justify-center shadow-[0_0_50px_rgba(211,24,38,0.25)]">
                 

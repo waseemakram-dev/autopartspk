@@ -30,6 +30,7 @@ export interface Product {
     condition: '100% Genuine OEM' | 'Japanese Reconditioned' | 'High-Grade Aftermarket';
     inStock: boolean;
     image: string;
+    hoverImage?: string;
     rating: number;
     reviewsCount: number;
     description: string;
@@ -70,21 +71,21 @@ export interface ShopInfo {
 }
 
 export const shopInfo: ShopInfo = {
-    name: "Auto Parts & Accessories PK",
+    name: process.env.NEXT_PUBLIC_SHOP_NAME || "Auto Parts & Accessories PK",
     tagline: "Bahawalpur's #1 Genuine Japanese & Pakistani Auto Spare Parts Store",
-    city: "Bahawalpur",
-    address: "Ayyoub Chowk near Cheeka Wala Chowk, Bahawalpur",
-    landmark: "Ayyoub Chowk near Cheeka Wala Chowk, Bahawalpur",
-    phone: "+92 304 5759687",
-    whatsapp: "923045759687",
-    email: "info@autopartsaccessories.pk",
-    timings: "9:00 AM - 9:30 PM",
-    days: "Monday to Saturday (Friday 2:30 PM onwards)",
+    city: process.env.NEXT_PUBLIC_SHOP_CITY || "Bahawalpur",
+    address: process.env.NEXT_PUBLIC_SHOP_ADDRESS || "Ayyoub Chowk near Cheeka Wala Chowk, Bahawalpur",
+    landmark: process.env.NEXT_PUBLIC_SHOP_ADDRESS || "Ayyoub Chowk near Cheeka Wala Chowk, Bahawalpur",
+    phone: process.env.NEXT_PUBLIC_PHONE_NUMBER || "+92 304 5759687",
+    whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "923045759687",
+    email: process.env.NEXT_PUBLIC_SHOP_EMAIL || "info@autopartsaccessories.pk",
+    timings: process.env.NEXT_PUBLIC_STORE_TIMINGS || "9:00 AM - 9:30 PM",
+    days: process.env.NEXT_PUBLIC_STORE_DAYS || "Monday to Saturday (Friday 2:30 PM onwards)",
     mapCoordinates: {
         lat: 29.3957,
         lng: 71.6833
     },
-    googleMapsUrl: "https://maps.google.com/?q=29.3957,71.6833"
+    googleMapsUrl: process.env.NEXT_PUBLIC_GOOGLE_MAPS_URL || "https://maps.google.com/?q=29.3957,71.6833"
 };
 
 export const carBrands: Brand[] = [
@@ -209,7 +210,7 @@ export const partCategories: Category[] = [
     }
 ];
 
-export const featuredProducts: Product[] = [
+export const allProducts: Product[] = [
     {
         id: 'prod-01',
         name: 'Akebono Ceramic Front Brake Pads',
@@ -221,6 +222,7 @@ export const featuredProducts: Product[] = [
         condition: '100% Genuine OEM',
         inStock: true,
         image: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=500&auto=format&fit=crop',
+        hoverImage: 'https://laravel-servixa.mnsithub.com/assets/images/shop/shop-product-1-2.jpg',
         rating: 4.9,
         reviewsCount: 38,
         description: 'Zero noise, ultra-low brake dust Japanese ceramic compound for supreme braking grip.'
@@ -236,6 +238,7 @@ export const featuredProducts: Product[] = [
         condition: '100% Genuine OEM',
         inStock: true,
         image: 'https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=500&auto=format&fit=crop',
+        hoverImage: 'https://laravel-servixa.mnsithub.com/assets/images/shop/shop-product-1-1.jpg',
         rating: 5.0,
         reviewsCount: 29,
         description: 'Original Japanese twin-tube gas shocks providing factory ride comfort and road control.'
@@ -251,6 +254,7 @@ export const featuredProducts: Product[] = [
         condition: '100% Genuine OEM',
         inStock: true,
         image: 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=500&auto=format&fit=crop',
+        hoverImage: 'https://laravel-servixa.mnsithub.com/assets/images/shop/shop-product-1-2.jpg',
         rating: 4.9,
         reviewsCount: 52,
         description: 'High fuel efficiency, instant winter ignition, 100,000 km ultra-long spark life.'
@@ -266,6 +270,7 @@ export const featuredProducts: Product[] = [
         condition: '100% Genuine OEM',
         inStock: true,
         image: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=500&auto=format&fit=crop',
+        hoverImage: 'https://laravel-servixa.mnsithub.com/assets/images/shop/shop-product-1-1.jpg',
         rating: 4.8,
         reviewsCount: 44,
         description: 'Feather-light pedal feel, zero vibration pick up, authentic Aisin Japan engraving.'
@@ -281,6 +286,7 @@ export const featuredProducts: Product[] = [
         condition: '100% Genuine OEM',
         inStock: true,
         image: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=500&auto=format&fit=crop',
+        hoverImage: 'https://laravel-servixa.mnsithub.com/assets/images/shop/shop-product-1-2.jpg',
         rating: 4.9,
         reviewsCount: 22,
         description: 'Maximum dust capture in South Punjab dusty climate, protects engine throttle body.'
@@ -296,11 +302,194 @@ export const featuredProducts: Product[] = [
         condition: 'High-Grade Aftermarket',
         inStock: true,
         image: 'https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?q=80&w=500&auto=format&fit=crop',
+        hoverImage: 'https://laravel-servixa.mnsithub.com/assets/images/shop/shop-product-1-1.jpg',
         rating: 5.0,
         reviewsCount: 17,
         description: 'Motorsport racing bronze finish, aggressive stance, PCD 4x100/114.3 dual fitment.'
+    },
+    {
+        id: 'prod-07',
+        name: 'Brembo Front Brake Disc Rotors (Pair)',
+        partNumber: '09.A868.10',
+        brand: 'Honda',
+        compatibleModels: ['Civic Turbo RS 2016-2021', 'Civic Oriel 1.8', 'Vezel Hybrid'],
+        category: 'brakes',
+        pricePKR: 16500,
+        condition: '100% Genuine OEM',
+        inStock: true,
+        image: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=500&auto=format&fit=crop',
+        rating: 4.9,
+        reviewsCount: 31,
+        description: 'High-carbon ventilated steel disc rotors for maximum heat dissipation and fade resistance.'
+    },
+    {
+        id: 'prod-08',
+        name: 'Genuine Suzuki Alto Lower Control Arm Assembly (Pair)',
+        partNumber: '45200-74P00',
+        brand: 'Suzuki',
+        compatibleModels: ['Alto 660cc 2019-2024', 'Wagon R VXR/VXL'],
+        category: 'suspension',
+        pricePKR: 9800,
+        condition: '100% Genuine OEM',
+        inStock: true,
+        image: 'https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=500&auto=format&fit=crop',
+        rating: 4.7,
+        reviewsCount: 19,
+        description: 'Pre-bushed steel control arm assembly with heavy-duty ball joint for smooth steering alignment.'
+    },
+    {
+        id: 'prod-09',
+        name: 'Denso Genuine Ignition Coil Pack (Set of 4)',
+        partNumber: '90919-02258',
+        brand: 'Toyota',
+        compatibleModels: ['Corolla Altis 1.6/1.8', 'Fortuner 2.7', 'Hilux Revo 2.7'],
+        category: 'engine',
+        pricePKR: 18400,
+        condition: '100% Genuine OEM',
+        inStock: true,
+        image: 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=500&auto=format&fit=crop',
+        rating: 4.9,
+        reviewsCount: 41,
+        description: 'High voltage output ignition coils eliminating cylinder misfires and optimizing fuel economy.'
+    },
+    {
+        id: 'prod-10',
+        name: 'Genuine Honda CVT Fluid HCF-2 (4 Liters)',
+        partNumber: '08269-99904',
+        brand: 'Honda',
+        compatibleModels: ['Civic X CVT', 'City 1.2/1.5 CVT', 'BR-V CVT', 'Grace Hybrid'],
+        category: 'filters',
+        pricePKR: 12500,
+        condition: '100% Genuine OEM',
+        inStock: true,
+        image: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=500&auto=format&fit=crop',
+        rating: 5.0,
+        reviewsCount: 64,
+        description: 'Official Honda Japan transmission fluid formulated for ultra-smooth gear shifts and CVT protection.'
+    },
+    {
+        id: 'prod-11',
+        name: 'HYUNDAI Genuine Tucson Ceramic Brake Pads Set',
+        partNumber: '58101-D3A00',
+        brand: 'Hyundai',
+        compatibleModels: ['Tucson FWD/AWD 2020-2024', 'Elantra 1.6/2.0'],
+        category: 'brakes',
+        pricePKR: 8900,
+        condition: '100% Genuine OEM',
+        inStock: true,
+        image: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=500&auto=format&fit=crop',
+        rating: 4.8,
+        reviewsCount: 15,
+        description: 'Factory original Hyundai Mobis ceramic brake pads with shims for silent high-speed stopping.'
+    },
+    {
+        id: 'prod-12',
+        name: 'KIA Sportage OEM Front Strut Mount & Bearing (Pair)',
+        partNumber: '54610-D3000',
+        brand: 'KIA',
+        compatibleModels: ['Sportage Alpha/FWD/AWD 2019-2024', 'Picanto 1.0'],
+        category: 'suspension',
+        pricePKR: 11200,
+        condition: '100% Genuine OEM',
+        inStock: true,
+        image: 'https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=500&auto=format&fit=crop',
+        rating: 4.9,
+        reviewsCount: 23,
+        description: 'Mobis Korea heavy duty strut mount dampeners eliminating suspension thumping sounds.'
+    },
+    {
+        id: 'prod-13',
+        name: 'Daihatsu Mira / Move Japanese Shock Absorbers Set',
+        partNumber: '48510-B2C10',
+        brand: 'Daihatsu',
+        compatibleModels: ['Mira ES 660cc', 'Move Custom', 'Cast Activa', 'Hijet Truck'],
+        category: 'suspension',
+        pricePKR: 17800,
+        condition: 'Japanese Reconditioned',
+        inStock: true,
+        image: 'https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=500&auto=format&fit=crop',
+        rating: 4.7,
+        reviewsCount: 36,
+        description: 'Inspected low-mileage original Japanese shocks imported directly for Kei cars.'
+    },
+    {
+        id: 'prod-14',
+        name: 'Changan Alsvin Engine Timing Belt & Tensioner Kit',
+        partNumber: 'AL-104921',
+        brand: 'Changan',
+        compatibleModels: ['Alsvin 1.3/1.5', 'Karvaan MPV 1.0', 'M9 Pickup'],
+        category: 'engine',
+        pricePKR: 6400,
+        condition: '100% Genuine OEM',
+        inStock: true,
+        image: 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=500&auto=format&fit=crop',
+        rating: 4.8,
+        reviewsCount: 14,
+        description: 'Heavy duty HNBR timing belt kit with sealed German tensioner bearing.'
+    },
+    {
+        id: 'prod-15',
+        name: 'Toyota Corolla Altis Grande Projector LED Headlight (Pair)',
+        partNumber: '81110-02R20',
+        brand: 'Toyota',
+        compatibleModels: ['Corolla Altis Grande 2017-2024'],
+        category: 'body-lights',
+        pricePKR: 38500,
+        condition: '100% Genuine OEM',
+        inStock: true,
+        image: 'https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?q=80&w=500&auto=format&fit=crop',
+        rating: 5.0,
+        reviewsCount: 28,
+        description: 'Original Koito Japan LED DRL projector headlight assemblies with crisp beam cutoff.'
+    },
+    {
+        id: 'prod-16',
+        name: 'Exedy Heavy Duty Clutch Plate & Cover Assembly',
+        partNumber: 'HDC-509-EX',
+        brand: 'Honda',
+        compatibleModels: ['Civic EXi / VTi 2001-2006 (Eagle Eye)', 'City 1.3/1.5 Manual'],
+        category: 'clutch-transmission',
+        pricePKR: 14500,
+        condition: '100% Genuine OEM',
+        inStock: true,
+        image: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=500&auto=format&fit=crop',
+        rating: 4.9,
+        reviewsCount: 40,
+        description: 'Exedy Daikin Japan organic friction material for maximum torque transfer without slipping.'
+    },
+    {
+        id: 'prod-17',
+        name: 'Mobil 1 Extended Performance 5W-30 Fully Synthetic Oil (4L)',
+        partNumber: 'MOB-5W30-EP',
+        brand: 'Toyota',
+        compatibleModels: ['All Toyota', 'All Honda', 'All Suzuki', 'All Hyundai/KIA'],
+        category: 'filters',
+        pricePKR: 11800,
+        condition: '100% Genuine OEM',
+        inStock: true,
+        image: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=500&auto=format&fit=crop',
+        rating: 5.0,
+        reviewsCount: 88,
+        description: '15,000 km oil drain interval formula protecting engine against extreme summer temperatures.'
+    },
+    {
+        id: 'prod-18',
+        name: 'Suzuki Cultus K10B Water Pump Assembly',
+        partNumber: '17400-67LV0',
+        brand: 'Suzuki',
+        compatibleModels: ['Cultus New Shape 2017-2024', 'Wagon R 1.0'],
+        category: 'engine',
+        pricePKR: 5400,
+        condition: '100% Genuine OEM',
+        inStock: true,
+        image: 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=500&auto=format&fit=crop',
+        rating: 4.8,
+        reviewsCount: 16,
+        description: 'Cast aluminum coolant water pump with ceramic shaft seal preventing overheating.'
     }
 ];
+
+export const featuredProducts: Product[] = allProducts.slice(0, 6);
 
 export const areasServed: AreaServed[] = [
     {
@@ -383,7 +572,7 @@ export const faqsData = [
     },
     {
         q: "I don't know the part name or code. How can I place an order?",
-        a: "It's simple! Take 2 clear photos of your old or damaged part with your phone and send them to our WhatsApp helpline (+92 304 5759687). Our auto specialists will immediately identify the part and provide instant pricing and stock status."
+        a: `It's simple! Take 2 clear photos of your old or damaged part with your phone and send them to our WhatsApp helpline (${shopInfo.phone}). Our auto specialists will immediately identify the part and provide instant pricing and stock status.`
     },
     {
         q: "Do you offer delivery outside Bahawalpur to Ahmedpur East, Yazman, or Lodhran?",

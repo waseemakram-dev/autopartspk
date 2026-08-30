@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { SmoothScroll } from '@/components/SmoothScroll';
 import { SpeedometerLoader } from '@/components/SpeedometerLoader';
-import { Suspense } from 'react';
 
 export const metadata: Metadata = {
     title: 'Auto Parts & Accessories PK | Genuine Car Spare Parts Bahawalpur',
@@ -19,8 +18,8 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Auto Parts & Accessories PK | Genuine Car Parts in Bahawalpur',
         description: '100% genuine spare parts for Toyota, Honda, and Suzuki. Send a photo of your part on WhatsApp for instant pricing.',
-        url: 'https://autopartsbahawalpur.pk',
-        siteName: 'Auto Parts & Accessories PK',
+        url: process.env.NEXT_PUBLIC_SITE_URL || 'https://autopartsbahawalpur.pk',
+        siteName: process.env.NEXT_PUBLIC_SHOP_NAME || 'Auto Parts & Accessories PK',
         locale: 'en_PK',
         type: 'website',
     },
@@ -43,15 +42,15 @@ export default function RootLayout({
     const localBusinessSchema = {
         "@context": "https://schema.org",
         "@type": "AutoPartsStore",
-        "@id": "https://autopartsbahawalpur.pk/#store",
-        "name": "Auto Parts & Accessories PK",
+        "@id": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://autopartsbahawalpur.pk'}/#store`,
+        "name": process.env.NEXT_PUBLIC_SHOP_NAME || "Auto Parts & Accessories PK",
         "image": "https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=1200",
-        "telephone": "+923045759687",
+        "telephone": `+${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "923045759687"}`,
         "priceRange": "PKR",
         "address": {
             "@type": "PostalAddress",
-            "streetAddress": "Ayyoub Chowk near Cheeka Wala Chowk",
-            "addressLocality": "Bahawalpur",
+            "streetAddress": process.env.NEXT_PUBLIC_SHOP_ADDRESS || "Ayyoub Chowk near Cheeka Wala Chowk",
+            "addressLocality": process.env.NEXT_PUBLIC_SHOP_CITY || "Bahawalpur",
             "addressRegion": "Punjab",
             "postalCode": "63100",
             "addressCountry": "PK"
@@ -96,9 +95,7 @@ export default function RootLayout({
                 />
             </head>
             <body className="min-h-screen bg-white text-[#0f1115] antialiased selection:bg-[#e03627] selection:text-white">
-                <Suspense fallback={null}>
-                    <SpeedometerLoader />
-                </Suspense>
+                <SpeedometerLoader />
                 <SmoothScroll>
                     {children}
                 </SmoothScroll>

@@ -19,7 +19,7 @@ export const Hero: React.FC = () => {
                     alt="Genuine Car Spare Parts"
                     className="w-full h-full object-cover object-right filter brightness-95 contrast-125 scale-105"
                 />
-                
+
                 {/* Left Fade Gradient Overlays (Ensures Left Text is 100% High-Contrast Crisp) */}
                 <div className="absolute inset-0 bg-gradient-to-r from-[#08080a] via-[#08080a]/90 via-50% to-transparent w-full lg:w-3/5" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0c1017] via-transparent to-[#08080a]/40" />

@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navbar } from '@/components/navbar';
 import { Hero } from '@/components/hero';
 import { CarCompatibilityFinder } from '@/components/CarCompatibilityFinder';
@@ -16,11 +16,21 @@ import { shopInfo } from '@/data/partsData';
 import { Phone, MessageSquare } from 'lucide-react';
 
 export default function Home() {
+    const [isPageVisible, setIsPageVisible] = useState(false);
+
+    useEffect(() => {
+        // Sync homepage fade-in with speedometer preloader completion (~1.7s)
+        const timer = setTimeout(() => {
+            setIsPageVisible(true);
+        }, 1700);
+        return () => clearTimeout(timer);
+    }, []);
+
     const whatsappLink = `https://wa.me/${shopInfo.whatsapp}?text=${encodeURIComponent("Assalam o Alaikum! Mujhe Auto Parts & Accessories PK Bahawalpur se replacement parts ki inquiry karni hai.")}`;
     const phoneLink = `tel:${shopInfo.phone.replace(/\s+/g, '')}`;
 
     return (
-        <div className="min-h-screen bg-white text-[#0f1115] flex flex-col items-center w-full">
+        <div className={`min-h-screen bg-white text-[#0f1115] flex flex-col items-center w-full transition-opacity duration-700 ease-in-out ${isPageVisible ? 'opacity-100' : 'opacity-0'}`}>
             {/* Floating Glassmorphic Navbar Overlay */}
             <Navbar />
 

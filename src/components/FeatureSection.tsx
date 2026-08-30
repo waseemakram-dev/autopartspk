@@ -4,6 +4,7 @@ import React from 'react';
 import { Camera, ArrowRight, MessageSquare, Phone, CheckCircle2, Clock, ShieldCheck, CheckCheck, Smile, Paperclip, Send, Video, MoreVertical, Check } from 'lucide-react';
 import { shopInfo } from '@/data/partsData';
 import { GrowthPlanButton } from './Button';
+import { GsapAnimatedHeader } from './GsapAnimatedHeader';
 
 export const FeatureSection: React.FC = () => {
     const whatsappLink = `https://wa.me/${shopInfo.whatsapp}?text=${encodeURIComponent("Assalam o Alaikum! Yeh mere car part ki photo hai. Baraye meherbani iska exact rate aur availability confirm kar dein.")}`;
@@ -13,25 +14,20 @@ export const FeatureSection: React.FC = () => {
         <section id="snap-send" className="w-full bg-[#0c1017] text-white py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8">
             <div className="max-w-[1400px] mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                    
+
                     {/* Left Column: Heading & Human-Centric Guidance */}
                     <div className="lg:col-span-7 space-y-6">
-                        {/* Status Pill */}
-                        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#e03627]/15 border border-[#e03627]/40 text-xs font-machina font-bold text-[#ff5747] uppercase tracking-wider">
-                            <Camera className="w-3.5 h-3.5" />
-                            <span>Bahawalpur WhatsApp Photo Helpline</span>
-                        </div>
-
-                        {/* Bold Main Headline */}
-                        <h2 className="font-druk text-3xl sm:text-5xl lg:text-6xl uppercase tracking-tight text-white leading-[1.02]">
-                            DON'T KNOW THE PART NAME? <br />
-                            <span className="text-[#e03627]">JUST SEND A PHOTO.</span>
-                        </h2>
-
-                        {/* Practical Explanatory Copy */}
-                        <p className="text-slate-300 font-machina text-sm sm:text-base leading-relaxed max-w-xl">
-                            Aksar car ke purane spare parts par number mit jaate hain ya technical naam yaad nahi rehta. Apne mobile se part ki photo le kar hamare WhatsApp counter pe send karein — hum 5 minute mein genuine Japanese part verify kar ke price bata denge.
-                        </p>
+                        {/* GSAP Character Split Header */}
+                        <GsapAnimatedHeader
+                            badgeText="Bahawalpur WhatsApp Photo Helpline"
+                            badgeIcon={<Camera className="w-3.5 h-3.5" />}
+                            titleText="DON'T KNOW THE PART NAME?"
+                            highlightText="JUST SEND A PHOTO."
+                            descriptionText="Aksar car ke purane spare parts par number mit jaate hain ya technical naam yaad nahi rehta. Apne mobile se part ki photo le kar hamare WhatsApp counter pe send karein — hum 5 minute mein genuine Japanese part verify kar ke price bata denge."
+                            align="left"
+                            theme="dark"
+                            className="!mb-6"
+                        />
 
                         {/* 3 Step Streamlined Workflow */}
                         <div className="pt-3 pb-2">
@@ -113,7 +109,7 @@ export const FeatureSection: React.FC = () => {
                     {/* Right Column: 100% Authentic WhatsApp Chat Simulation Mockup */}
                     <div className="lg:col-span-5 w-full">
                         <div className="rounded-2xl sm:rounded-3xl bg-[#0b141a] border border-white/15 overflow-hidden shadow-2xl flex flex-col transition-all duration-300 hover:border-white/25">
-                            
+
                             {/* WhatsApp Header Bar */}
                             <div className="bg-[#202c33] px-3.5 py-3 border-b border-black/30 flex items-center justify-between">
                                 <div className="flex items-center gap-3 min-w-0">
@@ -199,7 +195,7 @@ export const FeatureSection: React.FC = () => {
                                             <p className="leading-snug text-[11px] sm:text-xs text-slate-200">
                                                 "G bhai, bilkul counter stock mein available hai! Ayyoub Chowk counter par kisi bhi waqt aakar inspect karein aur hand-to-hand le jayein."
                                             </p>
-                                            
+
                                             {/* Status & Timestamp */}
                                             <div className="pt-1 text-[9px] sm:text-[10px] text-slate-400 flex items-center justify-between border-t border-white/5">
                                                 <span className="text-[#25d366] font-bold">✓ Counter Pickup Ready</span>
