@@ -87,3 +87,8 @@
 ::-webkit-scrollbar-thumb:hover {
     background: #ff4d3d;
 }
+
+/* Product Card Image Container Height */
+.h-52 {
+    height: 21rem !important;
+}

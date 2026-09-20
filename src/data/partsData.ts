@@ -180,13 +180,13 @@ export const partCategories: Category[] = [
     },
     {
         id: 'wheels-styling',
-        name: 'Wheel Covers & Exterior',
-        urduName: 'وہیل کورز اور باڈی سٹائلنگ',
+        name: 'Car Covers, Wheels & Exterior',
+        urduName: 'کار کورز، وہیلز اور باڈی سٹائلنگ',
         icon: 'Disc',
         itemCount: 220,
-        description: 'BTC 16" Virgin ABS Metallic Silver Hubcaps & Rim Protection Sets',
-        subcategories: ['16 Inch Wheel Covers', 'Virgin ABS Plastic', 'Airflow 5-Spoke Design', 'Snap-on Ring'],
-        image: '/products/btc-wheel-cover-16.jpg'
+        description: 'Dayzzel PVC+Cotton Waterproof Car Covers & BTC 16" ABS Metallic Silver Wheel Hubcaps',
+        subcategories: ['Dayzzel Car Covers', '16 Inch Wheel Covers', 'Virgin ABS Hubcaps', 'Anti-Scratch Fleece'],
+        image: '/products/dayzzel-cotton-car-cover.jpg'
     }
 ];
 
@@ -334,6 +334,54 @@ export const allProducts: Product[] = [
         rating: 4.9,
         reviewsCount: 62,
         description: 'Antistatic interior & exterior detailing wax with crisp fresh lemon scent. Restores original showroom deep luster on vinyl, plastic trims, and rubber tires.'
+    },
+    {
+        id: 'prod-10',
+        name: 'Dayzzel All-Weather Double-Layer PVC + Cotton Car Cover',
+        partNumber: 'DYZ-CC-PVCC',
+        brand: 'Toyota',
+        compatibleModels: ['Corolla', 'Civic', 'City', 'Yaris', 'Alto', 'Cultus', 'Swift', 'BR-V', 'Sportage', 'Tucson', 'All Sedans & Hatchbacks'],
+        category: 'wheels-styling',
+        pricePKR: 3800,
+        condition: 'High-Grade Aftermarket',
+        inStock: true,
+        image: '/products/dayzzel-cotton-car-cover.jpg',
+        hoverImage: '/products/dayzzel-cotton-car-cover.jpg',
+        rating: 4.9,
+        reviewsCount: 41,
+        description: 'Heavy-duty waterproof PVC outer shell with anti-scratch soft cotton fleece inner lining. Features driver door zipper, mirror pockets, and windproof buckle straps.'
+    },
+    {
+        id: 'prod-11',
+        name: 'Maxxis B019 Compact Full-Power Tone Disc Horn Set (12V)',
+        partNumber: 'B019-DISC-HN',
+        brand: 'Suzuki',
+        compatibleModels: ['Alto', 'Cultus', 'Wagon R', 'Mehran', 'Bolan', 'Corolla', 'Civic', 'All Bikes & Cars'],
+        category: 'horns-audio',
+        pricePKR: 2400,
+        condition: 'High-Grade Aftermarket',
+        inStock: true,
+        image: '/products/maxxis-b019-disc-horn.jpg',
+        hoverImage: '/products/maxxis-b019-disc-horn.jpg',
+        rating: 4.8,
+        reviewsCount: 35,
+        description: 'Maxxis B019 dual electro-pneumatic disc horn pair (355Hz low / 430Hz high tone). Compact slim profile with powerful metallic penetrating acoustic blast.'
+    },
+    {
+        id: 'prod-12',
+        name: 'Super-Plush 600 GSM Microfiber Wash & Dry Detailing Towel Pack',
+        partNumber: 'MF-TOWEL-600GSM',
+        brand: 'Honda',
+        compatibleModels: ['All Vehicle Detailing', 'Corolla', 'Civic', 'City', 'Alto', 'Kei Cars', 'SUVs & Bikes'],
+        category: 'car-care',
+        pricePKR: 750,
+        condition: '100% Genuine OEM',
+        inStock: true,
+        image: '/products/microfiber-luxury-car-towels.jpg',
+        hoverImage: '/products/microfiber-luxury-car-towels.jpg',
+        rating: 5.0,
+        reviewsCount: 89,
+        description: 'Extra-thick 600+ GSM dual-sided plush microfiber towels with satin scratch-free border. Ultra-absorbent for swirl-free drying, waxing, buffing, and ceramic maintenance.'
     }
 ];
 

@@ -23,7 +23,7 @@ export const FeaturedProducts: React.FC = () => {
         { key: 'lighting', label: 'LED Headlights' },
         { key: 'horns-audio', label: 'Horns & Audio' },
         { key: 'car-care', label: 'Car Care & Fluids' },
-        { key: 'wheels-styling', label: 'Wheel Covers' },
+        { key: 'wheels-styling', label: 'Covers & Wheels' },
     ];
 
     return (

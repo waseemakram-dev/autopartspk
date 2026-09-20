@@ -59,7 +59,7 @@ export const CategoryGrid: React.FC<CategoryGridProps> = ({ onSelectCategory }) 
                             onClick={() => {
                                 if (onSelectCategory) onSelectCategory(cat.id);
                             }}
-                            className="group relative rounded-[24px] bg-white border border-slate-200/90 hover:border-slate-300 p-6 lg:p-7 flex flex-col justify-between overflow-hidden shadow-none hover:shadow-lg transition-all duration-300 cursor-pointer min-h-[480px]"
+                            className="group relative rounded-[24px] bg-white border border-slate-200/90 hover:border-slate-300 p-6 lg:p-7 flex flex-col justify-between overflow-hidden shadow-none hover:shadow-lg transition-all duration-300 cursor-pointer min-h-[580px]"
                         >
                             {/* Top Content: Badges, Title & Subcategories */}
                             <div className="relative z-10 mb-6 flex-1 flex flex-col items-start text-left">
@@ -101,17 +101,17 @@ export const CategoryGrid: React.FC<CategoryGridProps> = ({ onSelectCategory }) 
                             </div>
 
                             {/* Bottom Image Container with Hover Zoom & Sliding Growth Button */}
-                            <div className="relative z-10 w-full h-[210px] rounded-[18px] overflow-hidden border border-slate-200 shadow-md mt-auto shrink-0 bg-slate-900">
+                            <div className="relative z-10 w-full h-[300px] rounded-[18px] overflow-hidden border border-slate-200 shadow-sm mt-auto shrink-0 bg-[#fafafa] flex items-center justify-center p-3">
                                 {/* Category Real Product Image */}
                                 <img
                                     src={cat.image}
                                     alt={cat.name}
-                                    className="w-full h-full object-cover object-center transform group-hover:scale-108 transition-transform duration-700"
+                                    className="w-full h-full object-contain object-center transform group-hover:scale-105 transition-transform duration-500"
                                 />
 
-                                {/* Dark Gradient Overlay (Reveals more on card hover) */}
+                                {/* Dark Gradient Overlay (Only appears on card hover) */}
                                 <div
-                                    className="absolute inset-0 rounded-[18px] pointer-events-none opacity-20 group-hover:opacity-80 transition-opacity duration-500 backdrop-blur-[1px] z-10"
+                                    className="absolute inset-0 rounded-[18px] pointer-events-none opacity-0 group-hover:opacity-80 transition-opacity duration-500 backdrop-blur-[1px] z-10"
                                     style={{
                                         background: "linear-gradient(rgba(220, 38, 38, 0) 40%, rgba(15, 17, 21, 0.9) 100%)",
                                     }}

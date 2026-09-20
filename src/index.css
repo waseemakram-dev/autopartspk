@@ -44,6 +44,7 @@
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
@@ -52,4 +53,9 @@
 .rotate-circle-text {
     animation: spinCircleText 8s linear infinite !important;
     transform-origin: 50% 50% !important;
+}
+
+/* Product Card Image Container Height */
+.h-52 {
+    height: 21rem !important;
 }
