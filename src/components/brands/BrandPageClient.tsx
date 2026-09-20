@@ -32,7 +32,10 @@ export const BrandPageClient: React.FC<BrandPageClientProps> = ({
     // Filter products specifically for this brand
     const brandProducts = useMemo(() => {
         return allProducts.filter(
-            (p) => p.brand.toLowerCase() === brandName.toLowerCase()
+            (p) =>
+                p.brand.toLowerCase() === brandName.toLowerCase() ||
+                p.compatibleModels.some((m) => m.toLowerCase().includes(brandName.toLowerCase())) ||
+                p.compatibleModels.some((m) => m.toLowerCase().includes('all'))
         );
     }, [brandName]);
 

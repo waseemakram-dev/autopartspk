@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gemini Batch Image Generator</title>
+  <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      box-sizing: border-box;
+      padding: 16px;
+      background-color: #0f172a;
+      color: #f8fafc;
+      overflow-y: auto;
+    }
+    h2 {
+      font-size: 18px;
+      margin-top: 0;
+      color: #38bdf8;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 12px;
+    }
+    label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #94a3b8;
+      display: block;
+      margin-bottom: 6px;
+    }
+    input[type="file"], textarea, input[type="number"] {
+      width: 100%;
+      box-sizing: border-box;
+      background: #0f172a;
+      border: 1px solid #475569;
+      color: #f8fafc;
+      border-radius: 6px;
+      padding: 8px;
+      font-size: 12px;
+    }
+    textarea {
+      height: 110px;
+      resize: vertical;
+    }
+    button {
+      width: 100%;
+      background: linear-gradient(135deg, #0284c7, #2563eb);
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: linear-gradient(135deg, #0369a1, #1d4ed8);
+    }
+    button:disabled {
+      background: #475569;
+      cursor: not-allowed;
+    }
+    .status-box {
+      font-size: 12px;
+      background: #0f172a;
+      border: 1px solid #334155;
+      padding: 10px;
+      border-radius: 6px;
+      min-height: 60px;
+      color: #38bdf8;
+      font-family: monospace;
+      word-break: break-word;
+    }
+    .info {
+      font-size: 11px;
+      color: #64748b;
+      margin-top: 8px;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>⚡ Gemini Side Panel Batcher</h2>
+
+  <div class="card">
+    <label>1. Select All Images (Multi-Select 300+ Files):</label>
+    <input type="file" id="imageInput" multiple accept="image/*">
+    <div id="fileCount" class="info">0 images selected.</div>
+  </div>
+
+  <div class="card">
+    <label>2. Product Photography Prompt:</label>
+    <textarea id="promptText">Professional e-commerce product photography of the exact auto spare part shown in the input image.
+
+STRICT INSTRUCTIONS:
+1. PRESERVE THE PRODUCT: Keep the exact shape, features, metallic/plastic texture, geometry, and details of the auto part in the reference photo. Do NOT modify, replace, or alter the part itself.
+2. STUDIO BACKGROUND: Replace the messy/raw background with a clean, high-end, neutral studio background (soft off-white / light grey studio backdrop).
+3. LIGHTING & SHADOWS: Add realistic, soft ambient studio lighting that highlights metallic edges and chrome finishes. Add a subtle, realistic drop shadow beneath the part.
+4. QUALITY: Crisp 8k resolution, razor-sharp focus, professional commercial product shot ready for a website catalog.</textarea>
+  </div>
+
+  <div class="card">
+    <label>3. Delay Between Images (Seconds):</label>
+    <input type="number" id="delayInput" value="10" min="5" max="60">
+  </div>
+
+  <button id="startBtn">🚀 Start Auto Batch Process</button>
+
+  <div style="margin-top: 12px;">
+    <label>Live Progress Status:</label>
+    <div id="status" class="status-box">Side Panel Ready! Open gemini.google.com and click Start.</div>
+  </div>
+
+  <div class="info">
+    💡 Keeping this Side Panel open allows you to watch progress live without it closing when you click on Gemini.
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

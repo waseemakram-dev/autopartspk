@@ -45,12 +45,13 @@ export const CarCompatibilityFinder: React.FC = () => {
         // Brand must match either product.brand or any compatibleModels string
         const brandMatch =
             productBrand === selectedMake ||
-            product.compatibleModels.some((m) => m.toLowerCase().includes(selectedMake));
+            product.compatibleModels.some((m) => m.toLowerCase().includes(selectedMake)) ||
+            product.compatibleModels.some((m) => m.toLowerCase().includes('all'));
 
         // Model must match in compatibleModels
         const modelMatch = product.compatibleModels.some((m) => {
             const mLower = m.toLowerCase();
-            return mLower.includes(baseModelWord) || mLower.includes(selectedModel);
+            return mLower.includes(baseModelWord) || mLower.includes(selectedModel) || mLower.includes('all');
         });
 
         const categoryMatch =

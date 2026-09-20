@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "Gemini Auto Product Image Batcher",
+  "version": "1.0.2",
+  "description": "Automate batch image generation and downloading on Gemini web (gemini.google.com)",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "downloads",
+    "sidePanel"
+  ],
+  "host_permissions": [
+    "https://gemini.google.com/*",
+    "https://*.gemini.google.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "side_panel": {
+    "default_path": "popup.html"
+  },
+  "action": {
+    "default_title": "Open Gemini Batch Side Panel"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://gemini.google.com/*",
+        "https://*.gemini.google.com/*"
+      ],
+      "js": ["content.js"]
+    }
+  ]
+}

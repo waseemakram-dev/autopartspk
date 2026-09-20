@@ -20,11 +20,10 @@ export const FeaturedProducts: React.FC = () => {
 
     const filterPills = [
         { key: 'all', label: 'All Inventory' },
-        { key: 'brakes', label: 'Brakes & Hubs' },
-        { key: 'suspension', label: 'Suspension & Shocks' },
-        { key: 'engine', label: 'Engine Spares' },
-        { key: 'filters', label: 'Filters & Oils' },
-        { key: 'clutch-transmission', label: 'Clutch & Gearbox' },
+        { key: 'lighting', label: 'LED Headlights' },
+        { key: 'horns-audio', label: 'Horns & Audio' },
+        { key: 'car-care', label: 'Car Care & Fluids' },
+        { key: 'wheels-styling', label: 'Wheel Covers' },
     ];
 
     return (
